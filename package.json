@@ -9,6 +9,7 @@
     "dev": "vinext dev",
     "build": "vinext build",
     "prices": "node scripts/preview-prices.mjs",
+    "prices:preview": "node scripts/preview-prices.mjs",
     "prices:update": "node scripts/update-prices.mjs",
     "prices:generate": "node scripts/generate-display-data.mjs",
     "start": "wrangler dev --config dist/server/wrangler.json",

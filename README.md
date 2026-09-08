@@ -10,7 +10,7 @@ npm run prices:generate
 npm run dev
 ```
 
-価格APIが未設定でも、`data/price-history.json` のサンプル履歴で表示されます。
+価格APIが未設定でも、空の価格履歴で表示されます。
 
 ## データを編集する場所
 
@@ -30,7 +30,15 @@ npm run dev
 2. リポジトリの **Settings → Pages → Build and deployment** で **GitHub Actions** を選びます。
 3. `deploy-pages.yml` が完了すると公開されます。プロジェクトページ用のパスはWorkflowが自動設定します。
 
-## 価格APIの設定
+## ローカルでの価格API試験（推奨）
+
+1. `.env.example` をコピーして `.env.local` を作ります。
+2. `.env.local` の右辺だけに、取得したAPIキーを貼り付けます。
+3. `npm run prices:preview` を実行します。
+
+`.env.local` はGit管理対象外です。プレビューは価格履歴も表示用JSONも変更しません。`npm run prices`も同じプレビューの互換コマンドです。
+
+## GitHub Actions用の価格API設定
 
 GitHubリポジトリの **Settings → Secrets and variables → Actions** に次を追加します。
 
@@ -44,7 +52,7 @@ GitHubリポジトリの **Settings → Secrets and variables → Actions** に�
 
 ## 取得プレビュー
 
-`npm run prices` は完全なdry-runです。検索結果の上位5件を型番、商品状態、送料、照合理由、`wouldSelect`とともに表示しますが、価格履歴・表示用JSON・Gitは変更しません。本番の履歴追記は `npm run prices:update` です。どちらもYahoo!は1.1秒以上、楽天も同じ間隔で直列に検索します。
+`npm run prices:preview` は完全なdry-runです。検索結果の上位5件を型番、商品状態、送料、照合理由、`wouldSelect`とともに表示し、最後に販売元ごとの判定数を集計します。価格履歴・表示用JSON・Gitは変更しません。`npm run prices`も同じプレビューの互換コマンドです。本番の履歴追記は `npm run prices:update` です。どちらもYahoo!は1.1秒以上、楽天も同じ間隔で直列に検索します。
 
 ## 現在の制限
 

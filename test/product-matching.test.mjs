@@ -20,3 +20,8 @@ test('認証なしプレビューは履歴を書き換えず、秘密値を返�
   assert.equal(result.sourceResults.every((source) => !JSON.stringify(source).includes('secret-value')), true);
   assert.equal(await readFile('data/price-history.json', 'utf8'), before);
 });
+test('.env.localはGit管理外として指定され、雛形に値を含めない', async () => {
+  const [ignore, example] = await Promise.all([readFile('.gitignore', 'utf8'), readFile('.env.example', 'utf8')]);
+  assert.equal(ignore.includes('.env.local'), true);
+  assert.equal(example.trim(), 'YAHOO_APP_ID=\nRAKUTEN_APPLICATION_ID=\nRAKUTEN_ACCESS_KEY=');
+});
