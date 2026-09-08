@@ -1,0 +1,11 @@
+[
+  { "productId": "panasonic-na-lx129d", "timestamp": "2026-08-10T07:00:00+09:00", "source": "Yahoo!ショッピング", "price": 249800, "shopName": "家電と住設のイークローバー", "url": "https://shopping.yahoo.co.jp/", "shipping": "included" },
+  { "productId": "panasonic-na-lx129d", "timestamp": "2026-08-22T07:00:00+09:00", "source": "楽天市場", "price": 239800, "shopName": "XPRICE楽天市場店", "url": "https://search.rakuten.co.jp/", "shipping": "included" },
+  { "productId": "panasonic-na-lx129d", "timestamp": "2026-09-07T07:00:00+09:00", "source": "Yahoo!ショッピング", "price": 235800, "shopName": "家電と住設のイークローバー", "url": "https://shopping.yahoo.co.jp/", "shipping": "included" },
+  { "productId": "hitachi-bd-sx130k", "timestamp": "2026-08-12T07:00:00+09:00", "source": "楽天市場", "price": 218000, "shopName": "Joshin web", "url": "https://search.rakuten.co.jp/", "shipping": "included" },
+  { "productId": "hitachi-bd-sx130k", "timestamp": "2026-08-28T07:00:00+09:00", "source": "Yahoo!ショッピング", "price": 214800, "shopName": "コジマYahoo!店", "url": "https://shopping.yahoo.co.jp/", "shipping": "included" },
+  { "productId": "hitachi-bd-sx130k", "timestamp": "2026-09-07T07:00:00+09:00", "source": "楽天市場", "price": 212800, "shopName": "Joshin web", "url": "https://search.rakuten.co.jp/", "shipping": "included" },
+  { "productId": "toshiba-tw-127xm4", "timestamp": "2026-08-09T07:00:00+09:00", "source": "Yahoo!ショッピング", "price": 198000, "shopName": "ヤマダデンキ Yahoo!店", "url": "https://shopping.yahoo.co.jp/", "shipping": "unknown" },
+  { "productId": "toshiba-tw-127xm4", "timestamp": "2026-08-25T07:00:00+09:00", "source": "楽天市場", "price": 194800, "shopName": "イーベストPC・家電館", "url": "https://search.rakuten.co.jp/", "shipping": "included" },
+  { "productId": "toshiba-tw-127xm4", "timestamp": "2026-09-07T07:00:00+09:00", "source": "Yahoo!ショッピング", "price": 189800, "shopName": "ヤマダデンキ Yahoo!店", "url": "https://shopping.yahoo.co.jp/", "shipping": "included" }
+]

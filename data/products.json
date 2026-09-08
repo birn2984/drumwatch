@@ -1,0 +1,47 @@
+[
+  {
+    "id": "panasonic-na-lx129d",
+    "manufacturer": "パナソニック",
+    "model": "NA-LX129DL",
+    "productName": "ななめドラム洗濯乾燥機 NA-LX129DL",
+    "janCode": "4549980883187",
+    "washCapacityKg": 12,
+    "dryCapacityKg": 6,
+    "dryingMethod": "ヒートポンプ乾燥",
+    "dimensionsMm": { "width": 639, "depth": 722, "height": 1060 },
+    "detergentAutoDispense": true,
+    "releasePeriod": "2024年10月",
+    "productUrl": "https://panasonic.jp/wash/products/NA-LX129D.html",
+    "notes": "大容量・省エネ重視の候補"
+  },
+  {
+    "id": "hitachi-bd-sx130k",
+    "manufacturer": "日立",
+    "model": "BD-SX130KL",
+    "productName": "ビッグドラム BD-SX130KL",
+    "janCode": "4549873204242",
+    "washCapacityKg": 13,
+    "dryCapacityKg": 7,
+    "dryingMethod": "風アイロン（ヒートリサイクル）",
+    "dimensionsMm": { "width": 630, "depth": 720, "height": 1065 },
+    "detergentAutoDispense": true,
+    "releasePeriod": "2024年11月",
+    "productUrl": "https://kadenfan.hitachi.co.jp/wash/lineup/bd-sx130k/",
+    "notes": "乾燥容量を重視する場合の候補"
+  },
+  {
+    "id": "toshiba-tw-127xm4",
+    "manufacturer": "東芝",
+    "model": "TW-127XM4L",
+    "productName": "ZABOON ドラム式洗濯乾燥機 TW-127XM4L",
+    "janCode": "4904530128421",
+    "washCapacityKg": 12,
+    "dryCapacityKg": 7,
+    "dryingMethod": "ヒートポンプ除湿乾燥",
+    "dimensionsMm": { "width": 645, "depth": 720, "height": 1060 },
+    "detergentAutoDispense": true,
+    "releasePeriod": "2024年10月",
+    "productUrl": "https://www.toshiba-lifestyle.com/jp/laundries/tw-127xm4/",
+    "notes": "洗浄機能と乾燥容量のバランス重視"
+  }
+]

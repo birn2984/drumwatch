@@ -1,0 +1,150 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+body {
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+:root { --ink: #15242d; --muted-ink: #64737d; --paper: #f6f8f7; --line: #d9e1de; --brand: #00796b; --accent: #f4bc41; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: Arial, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif; }
+main { max-width: 1180px; margin: auto; padding: 0 24px 40px; }
+.topbar { display:flex; justify-content:space-between; align-items:end; padding: 44px 0 26px; border-bottom: 3px solid var(--ink); }
+.eyebrow,.section-label { margin:0 0 9px; color:var(--brand); font-size:.73rem; letter-spacing:.12em; font-weight:700; }
+h1 { margin:0; font-size:clamp(1.8rem,4vw,3.1rem); letter-spacing:-.06em; }
+.update { margin:0; text-align:right; color:var(--muted-ink); font-size:.85rem; line-height:1.65; }
+.intro { display:flex; justify-content:space-between; align-items:end; gap:32px; padding:36px 0 26px; }
+.intro h2 { margin:0; font-size:1.35rem; letter-spacing:-.03em; }.intro > p { max-width:470px; color:var(--muted-ink); font-size:.92rem; line-height:1.7; margin:0; }
+.watchlist { border-top:1px solid var(--line); }.table-head,.product-row { display:grid; grid-template-columns: 2.3fr 1.25fr .75fr 1fr 1.35fr .85fr; gap:18px; align-items:center; }
+.table-head { padding:12px 16px; color:var(--muted-ink); font-size:.72rem; font-weight:bold; letter-spacing:.04em; }.product { background:#fff; border:1px solid var(--line); border-bottom:0; }.product:last-child { border-bottom:1px solid var(--line); }
+.product-row { width:100%; padding:22px 16px; background:transparent; border:0; color:inherit; text-align:left; cursor:pointer; font:inherit; }.product-row:hover { background:#fbfdfc; }.product-name strong,.price { display:block; }.product-name strong { font-size:1rem; }.product small { display:block; margin-top:5px; color:var(--muted-ink); font-size:.73rem; line-height:1.35; }.price { color:#006c60; font-size:1.45rem; font-weight:800; letter-spacing:-.04em; }.diff { font-weight:700; }.diff.down { color:#00796b; }.timing { display:inline-block; padding:5px 9px; border-radius:99px; background:#e7ecea; font-size:.75rem; }.timing.かなり安い { background:#ffe39a; }.timing.安め { background:#cfece4; }.timing.高め { background:#f5dddb; color:#8b3630; }.product-row i { display:none; font-size:1.4rem; font-style:normal; float:right; }
+.detail { display:grid; grid-template-columns:1.2fr .8fr; gap:34px; padding:0 16px 26px; border-top:1px solid var(--line); }.detail h3 { margin:20px 0 12px; font-size:.86rem; }.metrics { display:grid; grid-template-columns:repeat(4,1fr); margin:0; border:1px solid var(--line); }.metrics div { padding:11px; border-right:1px solid var(--line); }.metrics div:last-child { border:0; }.metrics dt,.specs dt { color:var(--muted-ink); font-size:.7rem; }.metrics dd { margin:5px 0 0; font-size:.9rem; font-weight:bold; }.chart { padding:14px 0 0; }.chart svg { width:100%; height:115px; overflow:visible; }.chart line { stroke:#d9e1de; stroke-width:1; }.chart polyline { fill:none; stroke:#00796b; stroke-width:2.5; vector-effect:non-scaling-stroke; }.chart-label { display:flex; justify-content:space-between; color:var(--muted-ink); font-size:.73rem; }.specs dl { margin:0; }.specs dl div { display:grid; grid-template-columns:64px 1fr; gap:8px; padding:6px 0; }.specs dd { margin:0; font-size:.8rem; }.latest-shop { font-size:.8rem; line-height:1.6; }.latest-shop a,.product-link { color:#006c60; }.product-link { font-size:.82rem; font-weight:bold; }.no-data { color:var(--muted-ink); font-size:.85rem; }footer { padding:20px 0; color:var(--muted-ink); font-size:.75rem; line-height:1.6; }
+@media (max-width: 780px) { main { padding:0 14px 28px; }.topbar { align-items:start; flex-direction:column; gap:14px; padding-top:28px; }.update { text-align:left; }.intro { display:block; padding:26px 0 18px; }.intro > p { margin-top:14px; }.table-head { display:none; }.product-row { grid-template-columns:1fr auto; gap:10px; padding:17px 14px; }.product-row > span:nth-child(3),.product-row > span:nth-child(4) { display:none; }.product-row > span:nth-child(5) { grid-column:1; grid-row:2; font-size:.82rem; color:var(--muted-ink); }.product-row > span:nth-child(6) { grid-column:2; grid-row:2; }.product-row i { display:block; }.price { font-size:1.2rem; }.detail { grid-template-columns:1fr; gap:0; padding:0 14px 20px; }.metrics { grid-template-columns:repeat(2,1fr); }.metrics div:nth-child(2) { border-right:0; }.metrics div:nth-child(-n+2) { border-bottom:1px solid var(--line); } }
