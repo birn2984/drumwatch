@@ -1,8 +1,6 @@
 name: Update price history
 
 on:
-  schedule:
-    - cron: '0 22 * * *' # UTC 22:00 = Asia/Tokyo 07:00
   workflow_dispatch:
 
 permissions:

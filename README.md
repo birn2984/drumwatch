@@ -10,6 +10,8 @@ npm run prices:generate
 npm run dev
 ```
 
+ローカル開発サーバーでは `http://localhost:3000/drumwatch/` を開きます。
+
 価格APIが未設定でも、空の価格履歴で表示されます。
 
 ## データを編集する場所
@@ -28,7 +30,7 @@ npm run dev
 
 1. GitHubにリポジトリを作り、`main` ブランチへpushします。
 2. リポジトリの **Settings → Pages → Build and deployment** で **GitHub Actions** を選びます。
-3. `deploy-pages.yml` が完了すると公開されます。プロジェクトページ用のパスはWorkflowが自動設定します。
+3. `deploy-pages.yml` が完了すると、`https://birn2984.github.io/drumwatch/` で公開されます。
 
 ## ローカルでの価格API試験（推奨）
 
@@ -48,7 +50,7 @@ GitHubリポジトリの **Settings → Secrets and variables → Actions** に�
 
 楽天は現行API仕様に合わせ、Application IDをクエリ、Access Keyを`accessKey` HTTPヘッダーで送ります。登録後、Actionsの **Update price history** を手動実行して確認できます。いずれかの認証情報が未設定の販売元はスキップされ、既存の履歴は消えません。
 
-毎日の自動更新は、日本時間の朝7時（GitHub Actions cronの都合で多少の遅延あり）です。
+価格更新は現時点では手動実行のみです。日次自動更新は、実APIの確認後に別途有効化します。
 
 ## 取得プレビュー
 
