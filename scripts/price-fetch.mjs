@@ -3,6 +3,8 @@ import { classifyListing, conditionFromTitle, suspiciousPrice } from './product-
 export const REQUEST_INTERVAL_MS = 1100;
 export const PREVIEW_LIMIT = 5;
 export const RAKUTEN_REFERER = 'https://birn2984.github.io/drumwatch/';
+export const RAKUTEN_ORIGIN = 'https://birn2984.github.io';
+export const RAKUTEN_USER_AGENT = 'DrumWatch/0.1';
 let lastRequestAt = 0;
 
 const sleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
@@ -72,7 +74,7 @@ async function rakuten(product, environment, fetchImpl) {
   url.searchParams.set('format', 'json');
   url.searchParams.set('formatVersion', '2');
   await waitForRequestSlot();
-  const response = await fetchImpl(url, { headers: { Accept: 'application/json', accessKey: environment.RAKUTEN_ACCESS_KEY, Referer: RAKUTEN_REFERER } });
+  const response = await fetchImpl(url, { headers: { Accept: 'application/json', accessKey: environment.RAKUTEN_ACCESS_KEY, Referer: RAKUTEN_REFERER, Origin: RAKUTEN_ORIGIN, 'User-Agent': RAKUTEN_USER_AGENT } });
   if (!response.ok) throw new SafeRequestError(await rakutenError(response, environment));
   const json = await response.json();
   return { source: '楽天市場', search: searchTerm(product), state: 'queried', listings: (json.items ?? []).slice(0, PREVIEW_LIMIT).map((item) => ({ title: item.itemName ?? '', price: Number(item.itemPrice), shopName: item.shopName ?? '', url: item.itemUrl ?? '', shipping: shippingFromRakuten(Number(item.postageFlag)) })) };

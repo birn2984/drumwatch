@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { classifyListing, conditionFromTitle, suspiciousPrice, titleHasModel } from '../scripts/product-matching.mjs';
-import { credentialState, inspectProduct, RAKUTEN_REFERER } from '../scripts/price-fetch.mjs';
+import { credentialState, inspectProduct, RAKUTEN_ORIGIN, RAKUTEN_REFERER, RAKUTEN_USER_AGENT } from '../scripts/price-fetch.mjs';
 
 test('型番完全一致は採用する', () => assert.equal(classifyListing({ title: 'パナソニック NA-LX129DL ドラム式洗濯乾燥機', model: 'NA-LX129DL', price: 200000 }).status, 'accepted'));
 test('ハイフンとスペースの表記揺れは同一型番と扱う', () => assert.equal(titleHasModel('NA LX129DL 本体', 'NA-LX129DL'), true));
@@ -22,7 +22,8 @@ test('楽天 formatVersion=2の小文字itemsを直接解析する', async () =>
   const rakuten = result.sourceResults.find((source) => source.source === '楽天市場');
   assert.equal(request.url.searchParams.get('formatVersion'), '2');
   assert.equal(request.options.headers.Referer, RAKUTEN_REFERER);
-  assert.equal(request.options.headers.Origin, undefined);
+  assert.equal(request.options.headers.Origin, RAKUTEN_ORIGIN);
+  assert.equal(request.options.headers['User-Agent'], RAKUTEN_USER_AGENT);
   assert.deepEqual(rakuten.listings, [{ title: 'TEST-1 ドラム式洗濯乾燥機', price: 100000, shopName: 'Test Shop', url: 'https://example.test/item', shipping: 'included' }]);
 });
 test('楽天HTTPエラーは安全なstatusとerror_descriptionだけを表示する', async () => {
