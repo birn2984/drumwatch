@@ -26,6 +26,14 @@ test('楽天 formatVersion=2の小文字itemsを直接解析する', async () =>
   assert.equal(request.options.headers['User-Agent'], RAKUTEN_USER_AGENT);
   assert.deepEqual(rakuten.listings, [{ title: 'TEST-1 ドラム式洗濯乾燥機', price: 100000, shopName: 'Test Shop', url: 'https://example.test/item', shipping: 'included' }]);
 });
+test('楽天の実レスポンス互換の大文字Itemsも直接解析する', async () => {
+  const result = await inspectProduct({ id: 'test', manufacturer: 'Test', model: 'TEST-1', janCode: null }, undefined, {
+    environment: { RAKUTEN_APPLICATION_ID: 'app-id', RAKUTEN_ACCESS_KEY: 'access-key' },
+    fetchImpl: async () => ({ ok: true, json: async () => ({ Items: [{ itemName: 'TEST-1 ドラム式洗濯乾燥機', itemPrice: 100000, shopName: 'Test Shop', itemUrl: 'https://example.test/item', postageFlag: 1 }] }) }),
+  });
+  const rakuten = result.sourceResults.find((source) => source.source === '楽天市場');
+  assert.deepEqual(rakuten.listings, [{ title: 'TEST-1 ドラム式洗濯乾燥機', price: 100000, shopName: 'Test Shop', url: 'https://example.test/item', shipping: 'excluded' }]);
+});
 test('楽天HTTPエラーは安全なstatusとerror_descriptionだけを表示する', async () => {
   const secret = 'access-key-should-not-leak';
   const result = await inspectProduct({ id: 'test', manufacturer: 'Test', model: 'TEST-1', janCode: null }, undefined, {

@@ -10,6 +10,7 @@ let lastRequestAt = 0;
 const sleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 const searchTerm = (product) => product.janCode || product.model;
 const shippingFromRakuten = (flag) => flag === 0 ? 'included' : flag === 1 ? 'excluded' : 'unknown';
+const rakutenItems = (json) => Array.isArray(json?.items) ? json.items : Array.isArray(json?.Items) ? json.Items : [];
 
 class SafeRequestError extends Error {
   constructor(message) {
@@ -77,7 +78,7 @@ async function rakuten(product, environment, fetchImpl) {
   const response = await fetchImpl(url, { headers: { Accept: 'application/json', accessKey: environment.RAKUTEN_ACCESS_KEY, Referer: RAKUTEN_REFERER, Origin: RAKUTEN_ORIGIN, 'User-Agent': RAKUTEN_USER_AGENT } });
   if (!response.ok) throw new SafeRequestError(await rakutenError(response, environment));
   const json = await response.json();
-  return { source: '楽天市場', search: searchTerm(product), state: 'queried', listings: (json.items ?? []).slice(0, PREVIEW_LIMIT).map((item) => ({ title: item.itemName ?? '', price: Number(item.itemPrice), shopName: item.shopName ?? '', url: item.itemUrl ?? '', shipping: shippingFromRakuten(Number(item.postageFlag)) })) };
+  return { source: '楽天市場', search: searchTerm(product), state: 'queried', listings: rakutenItems(json).slice(0, PREVIEW_LIMIT).map((item) => ({ title: item.itemName ?? '', price: Number(item.itemPrice), shopName: item.shopName ?? '', url: item.itemUrl ?? '', shipping: shippingFromRakuten(Number(item.postageFlag)) })) };
 }
 
 export function evaluateListings(product, sourceResult, previousPrice) {
