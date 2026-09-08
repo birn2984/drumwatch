@@ -18,7 +18,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm run prices
+      - run: npm run prices:update
         env:
           YAHOO_APP_ID: ${{ secrets.YAHOO_APP_ID }}
           RAKUTEN_APPLICATION_ID: ${{ secrets.RAKUTEN_APPLICATION_ID }}

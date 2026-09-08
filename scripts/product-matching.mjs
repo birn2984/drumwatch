@@ -2,6 +2,9 @@ export const PRICE_CHANGE_THRESHOLD = 0.5;
 
 const ACCESSORY_TERMS = ['延長保証', '設置サービス', '洗濯機台', '防水パン', '排水ホース', 'フィルター', '糸くずフィルター', '部品', '交換パーツ', '中古部品'];
 const MACHINE_TERMS = ['洗濯機', '洗濯乾燥機', 'ドラム式', 'ドラム', '本体'];
+const NON_NEW_TERMS = [
+  ['中古', 'used'], ['展示品', 'display'], ['アウトレット', 'outlet'], ['訳あり', 'outlet'], ['リユース', 'used'],
+];
 
 export function normalizeModel(value = '') {
   return value.normalize('NFKC').toUpperCase().replace(/[\s\-‐‑‒–—―ー]/g, '');
@@ -22,6 +25,11 @@ export function classifyListing({ title, model, price }) {
   const hasMachineTerm = MACHINE_TERMS.some((term) => title.includes(term));
   if (hasAccessoryTerm && !hasMachineTerm) return { status: 'rejected', reason: 'related_accessory' };
   return { status: 'accepted', reason: 'model_match' };
+}
+
+export function conditionFromTitle(title = '') {
+  const found = NON_NEW_TERMS.find(([term]) => title.includes(term));
+  return found ? found[1] : 'new';
 }
 
 export function suspiciousPrice(price, previousPrice, threshold = PRICE_CHANGE_THRESHOLD) {

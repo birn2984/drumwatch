@@ -42,6 +42,10 @@ GitHubリポジトリの **Settings → Secrets and variables → Actions** に�
 
 毎日の自動更新は、日本時間の朝7時（GitHub Actions cronの都合で多少の遅延あり）です。
 
+## 取得プレビュー
+
+`npm run prices` は完全なdry-runです。検索結果の上位5件を型番、商品状態、送料、照合理由、`wouldSelect`とともに表示しますが、価格履歴・表示用JSON・Gitは変更しません。本番の履歴追記は `npm run prices:update` です。どちらもYahoo!は1.1秒以上、楽天も同じ間隔で直列に検索します。
+
 ## 現在の制限
 
 - JANコード（任意）を優先検索し、型番の表記揺れを正規化して照合します。型番が一致しない候補、関連部品、前回価格から50%超変動する候補は履歴へ保存しません。
