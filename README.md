@@ -18,6 +18,10 @@ npm run dev
 - `data/price-history.json`: 取得済みの最安価格履歴
 - `lib/price-utils.ts`: 買い時判定と集計ルール
 
+`products.json` は、型番ごとに `familyId`、`doorDirection`、`monitorEnabled`、`tags` を持ちます。寸法は `dimensions.measurement` と一緒に保存し、ホースを含む総外形寸法と本体寸法を混同しません。`janCode`、自動投入、発売年、消費電力量など、メーカー公式で確認できない値は `null` を許容します。
+
+`monitorEnabled: false` にすると価格履歴を消さずに、その型番の次回以降の検索だけを停止できます。
+
 送料は `included`（込み）/ `excluded`（別）/ `unknown`（不明）で記録します。更新処理は、送料込みの候補があればその中の最安、なければ送料状態を明記した候補の最安を保存します。
 
 ## GitHub Pages

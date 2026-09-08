@@ -58,7 +58,7 @@ function logSource(source, result, validation) {
   return `${source}: rejected ${validation.reasons.length} (${[...new Set(validation.reasons)].join(', ') || 'no_match'})`;
 }
 
-for (const product of products) {
+for (const product of products.filter((product) => product.monitorEnabled)) {
   const previousPrice = latestPrice(product.id);
   const [yahooResult, rakutenResult] = await Promise.allSettled([yahoo(product), rakuten(product)]);
   const accepted = [];

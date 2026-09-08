@@ -26,6 +26,9 @@ export function lowestForDay(records: PriceRecord[]) {
 
 export function summaryFor(records: PriceRecord[]) {
   const ordered = [...records].sort((a, b) => +new Date(a.timestamp) - +new Date(b.timestamp));
+  if (!ordered.length) {
+    return { current: undefined, difference: undefined, average30: undefined, low30: undefined, low90: undefined, buyTiming: '普通' as const };
+  }
   const current = ordered.at(-1);
   const previous = ordered.at(-2);
   const cutoff30 = Date.now() - 30 * 24 * 60 * 60 * 1000;

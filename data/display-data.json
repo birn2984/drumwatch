@@ -1,176 +1,381 @@
 {
-  "generatedAt": "2026-09-08T13:17:58.238Z",
+  "generatedAt": "2026-09-08T13:58:02.153Z",
   "products": [
     {
-      "id": "panasonic-na-lx129d",
+      "id": "toshiba-tw-84gs5l",
+      "familyId": "toshiba-tw-84gs5",
+      "manufacturer": "東芝",
+      "model": "TW-84GS5L",
+      "productName": "ZABOON ドラム式洗濯乾燥機",
+      "janCode": null,
+      "doorDirection": "left",
+      "washCapacityKg": 8,
+      "dryCapacityKg": 4,
+      "dryingMethod": "heater",
+      "autoDosing": null,
+      "dimensions": {
+        "measurement": "overall_with_hoses",
+        "widthMm": 640,
+        "depthMm": 633,
+        "heightMm": 975
+      },
+      "washDryEnergyWh": 1980,
+      "washDryTimeMinutes": 198,
+      "releaseYear": 2025,
+      "officialUrl": "https://www.toshiba-lifestyle.com/jp/laundries/tw-84gs5/spec/",
+      "monitorEnabled": true,
+      "tags": [
+        "compact",
+        "value"
+      ],
+      "notes": "自動投入の有無は今回確認できた公式仕様では明示できずnull。",
+      "current": null,
+      "history": []
+    },
+    {
+      "id": "sharp-es-8xs1-wl",
+      "familyId": "sharp-es-8xs1",
+      "manufacturer": "シャープ",
+      "model": "ES-8XS1-WL",
+      "productName": "プラズマクラスタードラム式洗濯乾燥機",
+      "janCode": null,
+      "doorDirection": "left",
+      "washCapacityKg": 8,
+      "dryCapacityKg": 4,
+      "dryingMethod": "heat_pump",
+      "autoDosing": true,
+      "dimensions": {
+        "measurement": "overall_with_hoses",
+        "widthMm": 640,
+        "depthMm": 600,
+        "heightMm": 1040
+      },
+      "washDryEnergyWh": 800,
+      "washDryTimeMinutes": 148,
+      "releaseYear": 2025,
+      "officialUrl": "https://www.sharp.co.jp/sentaku/products/es8xs1/spec/",
+      "monitorEnabled": true,
+      "tags": [
+        "compact",
+        "heat-pump",
+        "standard"
+      ],
+      "notes": "ラスターホワイト・左開き。",
+      "current": null,
+      "history": []
+    },
+    {
+      "id": "sharp-es-8xs1-wr",
+      "familyId": "sharp-es-8xs1",
+      "manufacturer": "シャープ",
+      "model": "ES-8XS1-WR",
+      "productName": "プラズマクラスタードラム式洗濯乾燥機",
+      "janCode": null,
+      "doorDirection": "right",
+      "washCapacityKg": 8,
+      "dryCapacityKg": 4,
+      "dryingMethod": "heat_pump",
+      "autoDosing": true,
+      "dimensions": {
+        "measurement": "overall_with_hoses",
+        "widthMm": 640,
+        "depthMm": 600,
+        "heightMm": 1040
+      },
+      "washDryEnergyWh": 800,
+      "washDryTimeMinutes": 148,
+      "releaseYear": 2025,
+      "officialUrl": "https://www.sharp.co.jp/sentaku/products/es8xs1/spec/",
+      "monitorEnabled": true,
+      "tags": [
+        "compact",
+        "heat-pump",
+        "standard"
+      ],
+      "notes": "ラスターホワイト・右開き。",
+      "current": null,
+      "history": []
+    },
+    {
+      "id": "aqua-aqw-dms10a-l",
+      "familyId": "aqua-aqw-dms10a",
+      "manufacturer": "AQUA",
+      "model": "AQW-DMS10A-L",
+      "productName": "まっ直ぐドラム ドラム式洗濯乾燥機",
+      "janCode": null,
+      "doorDirection": "left",
+      "washCapacityKg": 10,
+      "dryCapacityKg": 5,
+      "dryingMethod": "heat_pump",
+      "autoDosing": true,
+      "dimensions": {
+        "measurement": "overall_including_drain_hose",
+        "widthMm": 595,
+        "depthMm": 598,
+        "heightMm": 943
+      },
+      "washDryEnergyWh": 1065,
+      "washDryTimeMinutes": 149,
+      "releaseYear": null,
+      "officialUrl": "https://aqua-has.com/lp/laundry/drumseries/",
+      "monitorEnabled": true,
+      "tags": [
+        "compact",
+        "heat-pump",
+        "standard"
+      ],
+      "notes": "左開き。発売年は今回の公式確認範囲では登録せずnull。",
+      "current": null,
+      "history": []
+    },
+    {
+      "id": "aqua-aqw-dms10a-r",
+      "familyId": "aqua-aqw-dms10a",
+      "manufacturer": "AQUA",
+      "model": "AQW-DMS10A-R",
+      "productName": "まっ直ぐドラム ドラム式洗濯乾燥機",
+      "janCode": null,
+      "doorDirection": "right",
+      "washCapacityKg": 10,
+      "dryCapacityKg": 5,
+      "dryingMethod": "heat_pump",
+      "autoDosing": true,
+      "dimensions": {
+        "measurement": "overall_including_drain_hose",
+        "widthMm": 595,
+        "depthMm": 598,
+        "heightMm": 943
+      },
+      "washDryEnergyWh": 1065,
+      "washDryTimeMinutes": 149,
+      "releaseYear": null,
+      "officialUrl": "https://aqua-has.com/lp/laundry/drumseries/",
+      "monitorEnabled": true,
+      "tags": [
+        "compact",
+        "heat-pump",
+        "standard"
+      ],
+      "notes": "右開き。発売年は今回の公式確認範囲では登録せずnull。",
+      "current": null,
+      "history": []
+    },
+    {
+      "id": "panasonic-na-sd10ubl",
+      "familyId": "panasonic-na-sd10ub",
       "manufacturer": "パナソニック",
-      "model": "NA-LX129DL",
-      "productName": "ななめドラム洗濯乾燥機 NA-LX129DL",
-      "jan": "4549980883187",
+      "model": "NA-SD10UBL",
+      "productName": "ななめドラム洗濯乾燥機",
+      "janCode": null,
+      "doorDirection": "left",
+      "washCapacityKg": 10,
+      "dryCapacityKg": 5,
+      "dryingMethod": "low_temp_heater",
+      "autoDosing": true,
+      "dimensions": {
+        "measurement": "overall_with_hoses",
+        "widthMm": 639,
+        "depthMm": 650,
+        "heightMm": 1010
+      },
+      "washDryEnergyWh": 1980,
+      "washDryTimeMinutes": 195,
+      "releaseYear": null,
+      "officialUrl": "https://panasonic.jp/wash/products/NA-SD10UBL/spec.html",
+      "monitorEnabled": true,
+      "tags": [
+        "compact",
+        "standard"
+      ],
+      "notes": "公式ページで確認できた左開きモデル。",
+      "current": null,
+      "history": []
+    },
+    {
+      "id": "hitachi-bd-cx100pl",
+      "familyId": "hitachi-bd-cx100p",
+      "manufacturer": "日立",
+      "model": "BD-CX100PL",
+      "productName": "ビッグドラム ドラム式洗濯乾燥機",
+      "janCode": null,
+      "doorDirection": "left",
+      "washCapacityKg": 10,
+      "dryCapacityKg": 5.5,
+      "dryingMethod": "low_temp_heater",
+      "autoDosing": true,
+      "dimensions": {
+        "measurement": "overall",
+        "widthMm": 638,
+        "depthMm": 645,
+        "heightMm": 1039
+      },
+      "washDryEnergyWh": 1590,
+      "washDryTimeMinutes": 145,
+      "releaseYear": 2026,
+      "officialUrl": "https://kadenfan.hitachi.co.jp/wash/lineup/bd-cx100p/spec.html",
+      "monitorEnabled": true,
+      "tags": [
+        "standard",
+        "value"
+      ],
+      "notes": "左開き。乾燥方式は公式表記「風アイロン（低温ヒート式）」。",
+      "current": null,
+      "history": []
+    },
+    {
+      "id": "hitachi-bd-cx100pr",
+      "familyId": "hitachi-bd-cx100p",
+      "manufacturer": "日立",
+      "model": "BD-CX100PR",
+      "productName": "ビッグドラム ドラム式洗濯乾燥機",
+      "janCode": null,
+      "doorDirection": "right",
+      "washCapacityKg": 10,
+      "dryCapacityKg": 5.5,
+      "dryingMethod": "low_temp_heater",
+      "autoDosing": true,
+      "dimensions": {
+        "measurement": "overall",
+        "widthMm": 638,
+        "depthMm": 645,
+        "heightMm": 1039
+      },
+      "washDryEnergyWh": 1590,
+      "washDryTimeMinutes": 145,
+      "releaseYear": 2026,
+      "officialUrl": "https://kadenfan.hitachi.co.jp/wash/lineup/bd-cx100p/spec.html",
+      "monitorEnabled": true,
+      "tags": [
+        "standard",
+        "value"
+      ],
+      "notes": "右開き。乾燥方式は公式表記「風アイロン（低温ヒート式）",
+      "current": null,
+      "history": []
+    },
+    {
+      "id": "panasonic-na-lx127el",
+      "familyId": "panasonic-na-lx127e",
+      "manufacturer": "パナソニック",
+      "model": "NA-LX127EL",
+      "productName": "ななめドラム洗濯乾燥機",
+      "janCode": null,
+      "doorDirection": "left",
       "washCapacityKg": 12,
       "dryCapacityKg": 6,
-      "dryingMethod": "ヒートポンプ乾燥",
-      "dimensionsMm": {
-        "width": 639,
-        "depth": 722,
-        "height": 1060
+      "dryingMethod": "heat_pump",
+      "autoDosing": true,
+      "dimensions": {
+        "measurement": "overall_with_hoses",
+        "widthMm": 639,
+        "depthMm": 722,
+        "heightMm": 1060
       },
-      "detergentAutoDispense": true,
-      "releasePeriod": "2024年10月",
-      "productUrl": "https://panasonic.jp/wash/products/NA-LX129D.html",
-      "notes": "大容量・省エネ重視の候補",
-      "current": {
-        "productId": "panasonic-na-lx129d",
-        "timestamp": "2026-09-07T07:00:00+09:00",
-        "source": "Yahoo!ショッピング",
-        "price": 235800,
-        "shopName": "家電と住設のイークローバー",
-        "url": "https://shopping.yahoo.co.jp/",
-        "shipping": "included"
-      },
-      "history": [
-        {
-          "productId": "panasonic-na-lx129d",
-          "timestamp": "2026-08-10T07:00:00+09:00",
-          "source": "Yahoo!ショッピング",
-          "price": 249800,
-          "shopName": "家電と住設のイークローバー",
-          "url": "https://shopping.yahoo.co.jp/",
-          "shipping": "included"
-        },
-        {
-          "productId": "panasonic-na-lx129d",
-          "timestamp": "2026-08-22T07:00:00+09:00",
-          "source": "楽天市場",
-          "price": 239800,
-          "shopName": "XPRICE楽天市場店",
-          "url": "https://search.rakuten.co.jp/",
-          "shipping": "included"
-        },
-        {
-          "productId": "panasonic-na-lx129d",
-          "timestamp": "2026-09-07T07:00:00+09:00",
-          "source": "Yahoo!ショッピング",
-          "price": 235800,
-          "shopName": "家電と住設のイークローバー",
-          "url": "https://shopping.yahoo.co.jp/",
-          "shipping": "included"
-        }
-      ]
+      "washDryEnergyWh": 800,
+      "washDryTimeMinutes": 98,
+      "releaseYear": null,
+      "officialUrl": "https://panasonic.jp/wash/products/NA-LX127EL/spec.html",
+      "monitorEnabled": true,
+      "tags": [
+        "premium",
+        "heat-pump"
+      ],
+      "notes": "左開き。消費電力量・時間は標準乾燥モード。",
+      "current": null,
+      "history": []
     },
     {
-      "id": "hitachi-bd-sx130k",
-      "manufacturer": "日立",
-      "model": "BD-SX130KL",
-      "productName": "ビッグドラム BD-SX130KL",
-      "jan": "4549873204242",
-      "washCapacityKg": 13,
-      "dryCapacityKg": 7,
-      "dryingMethod": "風アイロン（ヒートリサイクル）",
-      "dimensionsMm": {
-        "width": 630,
-        "depth": 720,
-        "height": 1065
+      "id": "panasonic-na-lx127er",
+      "familyId": "panasonic-na-lx127e",
+      "manufacturer": "パナソニック",
+      "model": "NA-LX127ER",
+      "productName": "ななめドラム洗濯乾燥機",
+      "janCode": null,
+      "doorDirection": "right",
+      "washCapacityKg": 12,
+      "dryCapacityKg": 6,
+      "dryingMethod": "heat_pump",
+      "autoDosing": true,
+      "dimensions": {
+        "measurement": "overall_with_hoses",
+        "widthMm": 639,
+        "depthMm": 722,
+        "heightMm": 1060
       },
-      "detergentAutoDispense": true,
-      "releasePeriod": "2024年11月",
-      "productUrl": "https://kadenfan.hitachi.co.jp/wash/lineup/bd-sx130k/",
-      "notes": "乾燥容量を重視する場合の候補",
-      "current": {
-        "productId": "hitachi-bd-sx130k",
-        "timestamp": "2026-09-07T07:00:00+09:00",
-        "source": "楽天市場",
-        "price": 212800,
-        "shopName": "Joshin web",
-        "url": "https://search.rakuten.co.jp/",
-        "shipping": "included"
-      },
-      "history": [
-        {
-          "productId": "hitachi-bd-sx130k",
-          "timestamp": "2026-08-12T07:00:00+09:00",
-          "source": "楽天市場",
-          "price": 218000,
-          "shopName": "Joshin web",
-          "url": "https://search.rakuten.co.jp/",
-          "shipping": "included"
-        },
-        {
-          "productId": "hitachi-bd-sx130k",
-          "timestamp": "2026-08-28T07:00:00+09:00",
-          "source": "Yahoo!ショッピング",
-          "price": 214800,
-          "shopName": "コジマYahoo!店",
-          "url": "https://shopping.yahoo.co.jp/",
-          "shipping": "included"
-        },
-        {
-          "productId": "hitachi-bd-sx130k",
-          "timestamp": "2026-09-07T07:00:00+09:00",
-          "source": "楽天市場",
-          "price": 212800,
-          "shopName": "Joshin web",
-          "url": "https://search.rakuten.co.jp/",
-          "shipping": "included"
-        }
-      ]
+      "washDryEnergyWh": 800,
+      "washDryTimeMinutes": 98,
+      "releaseYear": null,
+      "officialUrl": "https://panasonic.jp/wash/products/NA-LX127EL/spec.html",
+      "monitorEnabled": true,
+      "tags": [
+        "premium",
+        "heat-pump"
+      ],
+      "notes": "右開き。公式仕様ページは左開きとの共通仕様を参照。",
+      "current": null,
+      "history": []
     },
     {
-      "id": "toshiba-tw-127xm4",
+      "id": "toshiba-tw-127xp5l",
+      "familyId": "toshiba-tw-127xp5",
       "manufacturer": "東芝",
-      "model": "TW-127XM4L",
-      "productName": "ZABOON ドラム式洗濯乾燥機 TW-127XM4L",
-      "jan": "4904530128421",
+      "model": "TW-127XP5L",
+      "productName": "ZABOON ドラム式洗濯乾燥機",
+      "janCode": null,
+      "doorDirection": "left",
       "washCapacityKg": 12,
       "dryCapacityKg": 7,
-      "dryingMethod": "ヒートポンプ除湿乾燥",
-      "dimensionsMm": {
-        "width": 645,
-        "depth": 720,
-        "height": 1060
+      "dryingMethod": "heat_pump",
+      "autoDosing": true,
+      "dimensions": {
+        "measurement": "overall_with_hoses",
+        "widthMm": 645,
+        "depthMm": 720,
+        "heightMm": 1060
       },
-      "detergentAutoDispense": true,
-      "releasePeriod": "2024年10月",
-      "productUrl": "https://www.toshiba-lifestyle.com/jp/laundries/tw-127xm4/",
-      "notes": "洗浄機能と乾燥容量のバランス重視",
-      "current": {
-        "productId": "toshiba-tw-127xm4",
-        "timestamp": "2026-09-07T07:00:00+09:00",
-        "source": "Yahoo!ショッピング",
-        "price": 189800,
-        "shopName": "ヤマダデンキ Yahoo!店",
-        "url": "https://shopping.yahoo.co.jp/",
-        "shipping": "included"
+      "washDryEnergyWh": 1330,
+      "washDryTimeMinutes": 87,
+      "releaseYear": 2025,
+      "officialUrl": "https://www.toshiba-lifestyle.com/jp/laundries/tw-127xp5/spec/",
+      "monitorEnabled": true,
+      "tags": [
+        "premium",
+        "heat-pump"
+      ],
+      "notes": "左開き。消費電力量・時間は通常の洗濯～乾燥時。",
+      "current": null,
+      "history": []
+    },
+    {
+      "id": "toshiba-tw-127xp5r",
+      "familyId": "toshiba-tw-127xp5",
+      "manufacturer": "東芝",
+      "model": "TW-127XP5R",
+      "productName": "ZABOON ドラム式洗濯乾燥機",
+      "janCode": null,
+      "doorDirection": "right",
+      "washCapacityKg": 12,
+      "dryCapacityKg": 7,
+      "dryingMethod": "heat_pump",
+      "autoDosing": true,
+      "dimensions": {
+        "measurement": "overall_with_hoses",
+        "widthMm": 645,
+        "depthMm": 720,
+        "heightMm": 1060
       },
-      "history": [
-        {
-          "productId": "toshiba-tw-127xm4",
-          "timestamp": "2026-08-09T07:00:00+09:00",
-          "source": "Yahoo!ショッピング",
-          "price": 198000,
-          "shopName": "ヤマダデンキ Yahoo!店",
-          "url": "https://shopping.yahoo.co.jp/",
-          "shipping": "unknown"
-        },
-        {
-          "productId": "toshiba-tw-127xm4",
-          "timestamp": "2026-08-25T07:00:00+09:00",
-          "source": "楽天市場",
-          "price": 194800,
-          "shopName": "イーベストPC・家電館",
-          "url": "https://search.rakuten.co.jp/",
-          "shipping": "included"
-        },
-        {
-          "productId": "toshiba-tw-127xm4",
-          "timestamp": "2026-09-07T07:00:00+09:00",
-          "source": "Yahoo!ショッピング",
-          "price": 189800,
-          "shopName": "ヤマダデンキ Yahoo!店",
-          "url": "https://shopping.yahoo.co.jp/",
-          "shipping": "included"
-        }
-      ]
+      "washDryEnergyWh": 1330,
+      "washDryTimeMinutes": 87,
+      "releaseYear": 2025,
+      "officialUrl": "https://www.toshiba-lifestyle.com/jp/laundries/tw-127xp5/spec/",
+      "monitorEnabled": true,
+      "tags": [
+        "premium",
+        "heat-pump"
+      ],
+      "notes": "右開き。消費電力量・時間は通常の洗濯～乾燥時。",
+      "current": null,
+      "history": []
     }
   ]
 }
