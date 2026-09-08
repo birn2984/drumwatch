@@ -48,7 +48,7 @@ GitHubリポジトリの **Settings → Secrets and variables → Actions** に�
 - `RAKUTEN_APPLICATION_ID`: 楽天市場商品検索APIのアプリケーションID
 - `RAKUTEN_ACCESS_KEY`: 楽天市場商品検索APIのAccess Key
 
-楽天は現行API仕様に合わせ、Application IDをクエリ、Access Keyを`accessKey` HTTPヘッダーで送ります。登録後、Actionsの **Update price history** を手動実行して確認できます。いずれかの認証情報が未設定の販売元はスキップされ、既存の履歴は消えません。
+楽天は現行API仕様に合わせ、Application IDをクエリ、Access Keyを`accessKey` HTTPヘッダー、登録した公開URLを`Referer` HTTPヘッダーで送ります。登録後、Actionsの **Update price history** を手動実行して確認できます。いずれかの認証情報が未設定の販売元はスキップされ、既存の履歴は消えません。
 
 価格更新は現時点では手動実行のみです。日次自動更新は、実APIの確認後に別途有効化します。
 
