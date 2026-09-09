@@ -2,7 +2,6 @@ import { readFile } from 'node:fs/promises';
 import { credentialState, inspectProduct } from './price-fetch.mjs';
 import { loadLocalEnv } from './load-local-env.mjs';
 
-const OUTLIER_DISCOUNT_THRESHOLD = 0.3;
 const SOURCES = ['Yahoo!ショッピング', '楽天市場'];
 
 loadLocalEnv();
@@ -18,14 +17,6 @@ function lowestAccepted(entries, source) {
   return entries.filter((entry) => entry.source === source && entry.matching === 'accepted').sort((a, b) => a.price - b.price)[0];
 }
 
-function outlier(entries) {
-  const accepted = entries.filter((entry) => entry.matching === 'accepted' && Number.isFinite(entry.price)).sort((a, b) => a.price - b.price);
-  const minimum = accepted[0];
-  const runnerUp = accepted.find((entry) => entry.price > minimum?.price);
-  if (!minimum || !runnerUp || minimum.price > runnerUp.price * (1 - OUTLIER_DISCOUNT_THRESHOLD)) return null;
-  return { minimum, runnerUp, discountPercent: Math.round((1 - minimum.price / runnerUp.price) * 100) };
-}
-
 const credentials = credentialState();
 console.log(`Yahoo credentials: ${credentials.yahoo}`);
 console.log(`Rakuten credentials: ${credentials.rakuten}`);
@@ -37,15 +28,15 @@ for (const product of products.filter((item) => item.monitorEnabled)) {
   const inspection = await inspectProduct(product, latestPrice(product.id));
   const winner = inspection.winner;
   const bySource = Object.fromEntries(SOURCES.map((source) => [source, lowestAccepted(inspection.entries, source)]));
-  const outlierResult = outlier(inspection.entries);
+  const outlierCandidates = inspection.entries.filter((entry) => entry.matching === 'suspicious' && entry.reason === 'possible_outlier');
   const issues = [];
   if (!winner) issues.push('no_wouldSelect');
   if (winner?.condition !== 'new') issues.push(`condition:${winner.condition}`);
   if (!winner?.shopName) issues.push('shopNameなし');
   if (!winner?.url) issues.push('itemUrlなし');
   if (winner?.shipping === 'unknown') issues.push('shipping_unknown');
-  if (outlierResult) issues.push(`possible_outlier:${outlierResult.discountPercent}%`);
-  reports.push({ product, inspection, winner, bySource, issues, outlierResult });
+  if (outlierCandidates.length) issues.push('possible_outlier_excluded');
+  reports.push({ product, inspection, winner, bySource, issues, outlierCandidates });
   const selected = winner ? `${winner.source} (${winner.wouldSelect})` : '—';
   console.log(`| ${product.manufacturer} | ${product.model} | ${direction(product.doorDirection)} | ${selected} | ${markdown(winner?.title)} | ${formatYen(winner?.price)} | ${winner?.shipping ?? '—'} | ${markdown(winner?.shopName)} | ${winner?.condition ?? '—'} | ${winner?.url ?? '—'} | ${winner?.reason ?? '—'} | ${issues.join(', ') || 'なし'} |`);
 }
@@ -62,7 +53,7 @@ for (const report of reports) {
 const selected = reports.filter((report) => report.winner);
 const review = reports.filter((report) => report.issues.length);
 const unknownShipping = reports.filter((report) => report.winner?.shipping === 'unknown');
-const outliers = reports.filter((report) => report.outlierResult);
+const outliers = reports.filter((report) => report.outlierCandidates.length);
 const filtered = reports.flatMap((report) => report.inspection.entries.filter((entry) => entry.matching !== 'accepted').map((entry) => ({ model: report.product.model, source: entry.source, reason: entry.reason })));
 console.log('\nFinal inspection summary');
 console.log(`監視商品数: ${reports.length}`);
@@ -74,8 +65,10 @@ console.log(`possible_outlier: ${outliers.length}`);
 if (outliers.length) {
   console.log('possible_outlier candidates (not automatically selected):');
   for (const report of outliers) {
-    const { minimum, runnerUp, discountPercent } = report.outlierResult;
-    console.log(`- ${report.product.model}: ${minimum.source} ${formatYen(minimum.price)} (${minimum.shipping}) / next ${formatYen(runnerUp.price)} / ${discountPercent}% lower / ${minimum.title} / ${minimum.url}`);
+    for (const candidate of report.outlierCandidates) {
+      const next = report.inspection.entries.filter((entry) => entry.matching === 'accepted').sort((a, b) => a.price - b.price)[0];
+      console.log(`- ${report.product.model}: ${candidate.source} ${formatYen(candidate.price)} (${candidate.shipping}) / next safe ${formatYen(next?.price)} / ${candidate.title} / ${candidate.url}`);
+    }
   }
 }
 console.log(`安全に除外された候補: ${filtered.length}${filtered.length ? ` (${filtered.map((entry) => `${entry.model}/${entry.source}/${entry.reason}`).join(', ')})` : ''}`);

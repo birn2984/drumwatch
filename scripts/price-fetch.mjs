@@ -1,4 +1,4 @@
-import { classifyListing, conditionFromTitle, suspiciousPrice } from './product-matching.mjs';
+import { classifyListing, conditionFromTitle, flagPriceOutliers, suspiciousPrice } from './product-matching.mjs';
 
 export const REQUEST_INTERVAL_MS = 1100;
 export const PREVIEW_LIMIT = 5;
@@ -112,6 +112,7 @@ export async function inspectProduct(product, previousPrice, { environment = pro
     }
   }
   const entries = sourceResults.flatMap((result) => evaluateListings(product, result, previousPrice));
+  flagPriceOutliers(entries);
   const winner = selectWinner(entries);
   return { product, sourceResults, entries, winner };
 }

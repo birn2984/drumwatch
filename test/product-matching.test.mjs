@@ -1,13 +1,32 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { classifyListing, conditionFromTitle, suspiciousPrice, titleHasModel } from '../scripts/product-matching.mjs';
-import { credentialState, inspectProduct, RAKUTEN_ORIGIN, RAKUTEN_REFERER, RAKUTEN_USER_AGENT } from '../scripts/price-fetch.mjs';
+import { classifyListing, conditionFromTitle, flagPriceOutliers, suspiciousPrice, titleHasModel } from '../scripts/product-matching.mjs';
+import { credentialState, inspectProduct, RAKUTEN_ORIGIN, RAKUTEN_REFERER, RAKUTEN_USER_AGENT, selectWinner } from '../scripts/price-fetch.mjs';
 
 test('型番完全一致は採用する', () => assert.equal(classifyListing({ title: 'パナソニック NA-LX129DL ドラム式洗濯乾燥機', model: 'NA-LX129DL', price: 200000 }).status, 'accepted'));
 test('ハイフンとスペースの表記揺れは同一型番と扱う', () => assert.equal(titleHasModel('NA LX129DL 本体', 'NA-LX129DL'), true));
 test('末尾型番違いは採用しない', () => assert.equal(classifyListing({ title: 'NA-LX129DR ドラム式洗濯機', model: 'NA-LX129DL', price: 200000 }).reason, 'no_match'));
 test('型番一致でも関連部品だけは除外する', () => assert.equal(classifyListing({ title: 'NA-LX129DL 用 糸くずフィルター', model: 'NA-LX129DL', price: 1200 }).reason, 'related_accessory'));
+test('乾燥フィルターの対応機種型番はrejectする', () => assert.equal(classifyListing({ title: '乾燥フィルター ES-8XS1-WR対応 洗濯機用', model: 'ES-8XS1-WR', price: 3450 }).reason, 'related_accessory'));
+test('対応機種としてだけ書かれた型番はrejectする', () => assert.equal(classifyListing({ title: '対応機種 NA-LX127ER', model: 'NA-LX127ER', price: 3204 }).reason, 'compatible_model_reference'));
+test('本体のドラム式洗濯乾燥機はacceptする', () => assert.equal(classifyListing({ title: 'ES-8XS1-WR ドラム式洗濯乾燥機', model: 'ES-8XS1-WR', price: 186840 }).status, 'accepted'));
+test('色コード付き本体型番はacceptする', () => assert.equal(classifyListing({ title: 'NA-LX127ER-W ドラム式洗濯乾燥機', model: 'NA-LX127ER', price: 283970 }).status, 'accepted'));
+test('対応本体を含む部品はrejectする', () => assert.equal(classifyListing({ title: '純正部品 乾燥フィルター 対応本体 ES-8XS1-WR', model: 'ES-8XS1-WR', price: 3450 }).reason, 'related_accessory'));
+test('最安が次点より40%以上安ければpossible_outlierにする', () => {
+  const entries = [{ price: 98000, matching: 'accepted', wouldSelect: false }, { price: 175000, matching: 'accepted', wouldSelect: false }, { price: 178000, matching: 'accepted', wouldSelect: false }];
+  assert.equal(flagPriceOutliers(entries)[0].reason, 'possible_outlier');
+});
+test('outlierを除外して次点の正常候補をwouldSelectにする', () => {
+  const entries = [{ price: 98000, matching: 'accepted', shipping: 'included', wouldSelect: false }, { price: 175000, matching: 'accepted', shipping: 'included', wouldSelect: false }];
+  flagPriceOutliers(entries);
+  assert.equal(selectWinner(entries).price, 175000);
+});
+test('正常な価格差なら最安候補をwouldSelectにする', () => {
+  const entries = [{ price: 175000, matching: 'accepted', shipping: 'included', wouldSelect: false }, { price: 180000, matching: 'accepted', shipping: 'included', wouldSelect: false }];
+  assert.equal(flagPriceOutliers(entries).length, 0);
+  assert.equal(selectWinner(entries).price, 175000);
+});
 test('前回から50%超の価格変動はsuspiciousにする', () => assert.equal(suspiciousPrice(310000, 200000), 'price_change_55pct'));
 test('中古表記は通常新品候補にしない', () => assert.equal(conditionFromTitle('中古 NA-LX127EL ドラム式洗濯乾燥機'), 'used'));
 test('楽天 formatVersion=2の小文字itemsを直接解析する', async () => {
