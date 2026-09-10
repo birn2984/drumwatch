@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-08T13:58:02.153Z",
+  "generatedAt": "2026-09-10T01:26:44.905Z",
   "products": [
     {
       "id": "toshiba-tw-84gs5l",
@@ -29,8 +29,26 @@
         "value"
       ],
       "notes": "自動投入の有無は今回確認できた公式仕様では明示できずnull。",
-      "current": null,
-      "history": []
+      "current": {
+        "price": 137999,
+        "shopName": "ア-チホ-ルセ-ル",
+        "url": "https://store.shopping.yahoo.co.jp/archholesale/1311820.html",
+        "shipping": "included",
+        "source": "Yahoo!ショッピング",
+        "productId": "toshiba-tw-84gs5l",
+        "timestamp": "2026-09-10T01:26:15.896Z"
+      },
+      "history": [
+        {
+          "price": 137999,
+          "shopName": "ア-チホ-ルセ-ル",
+          "url": "https://store.shopping.yahoo.co.jp/archholesale/1311820.html",
+          "shipping": "included",
+          "source": "Yahoo!ショッピング",
+          "productId": "toshiba-tw-84gs5l",
+          "timestamp": "2026-09-10T01:26:15.896Z"
+        }
+      ]
     },
     {
       "id": "sharp-es-8xs1-wl",
@@ -61,8 +79,28 @@
         "standard"
       ],
       "notes": "ラスターホワイト・左開き。",
-      "current": null,
-      "history": []
+      "current": {
+        "price": 186840,
+        "shopName": "ディーライズ2号",
+        "url": "https://store.shopping.yahoo.co.jp/d-rise2/p000000925108.html",
+        "shipping": "included",
+        "source": "Yahoo!ショッピング",
+        "priceConfidence": "cross_source_confirmed",
+        "productId": "sharp-es-8xs1-wl",
+        "timestamp": "2026-09-10T01:26:18.034Z"
+      },
+      "history": [
+        {
+          "price": 186840,
+          "shopName": "ディーライズ2号",
+          "url": "https://store.shopping.yahoo.co.jp/d-rise2/p000000925108.html",
+          "shipping": "included",
+          "source": "Yahoo!ショッピング",
+          "priceConfidence": "cross_source_confirmed",
+          "productId": "sharp-es-8xs1-wl",
+          "timestamp": "2026-09-10T01:26:18.034Z"
+        }
+      ]
     },
     {
       "id": "sharp-es-8xs1-wr",
@@ -93,8 +131,28 @@
         "standard"
       ],
       "notes": "ラスターホワイト・右開き。",
-      "current": null,
-      "history": []
+      "current": {
+        "price": 186840,
+        "shopName": "ディーライズ2号",
+        "url": "https://store.shopping.yahoo.co.jp/d-rise2/p000000925109.html",
+        "shipping": "included",
+        "source": "Yahoo!ショッピング",
+        "priceConfidence": "cross_source_confirmed",
+        "productId": "sharp-es-8xs1-wr",
+        "timestamp": "2026-09-10T01:26:20.235Z"
+      },
+      "history": [
+        {
+          "price": 186840,
+          "shopName": "ディーライズ2号",
+          "url": "https://store.shopping.yahoo.co.jp/d-rise2/p000000925109.html",
+          "shipping": "included",
+          "source": "Yahoo!ショッピング",
+          "priceConfidence": "cross_source_confirmed",
+          "productId": "sharp-es-8xs1-wr",
+          "timestamp": "2026-09-10T01:26:20.235Z"
+        }
+      ]
     },
     {
       "id": "aqua-aqw-dms10a-l",
@@ -125,8 +183,26 @@
         "standard"
       ],
       "notes": "左開き。発売年は今回の公式確認範囲では登録せずnull。",
-      "current": null,
-      "history": []
+      "current": {
+        "price": 167800,
+        "shopName": "総合通販PREMOA Yahoo!店",
+        "url": "https://store.shopping.yahoo.co.jp/sake-premoa/4582678514196.html",
+        "shipping": "included",
+        "source": "Yahoo!ショッピング",
+        "productId": "aqua-aqw-dms10a-l",
+        "timestamp": "2026-09-10T01:26:22.459Z"
+      },
+      "history": [
+        {
+          "price": 167800,
+          "shopName": "総合通販PREMOA Yahoo!店",
+          "url": "https://store.shopping.yahoo.co.jp/sake-premoa/4582678514196.html",
+          "shipping": "included",
+          "source": "Yahoo!ショッピング",
+          "productId": "aqua-aqw-dms10a-l",
+          "timestamp": "2026-09-10T01:26:22.459Z"
+        }
+      ]
     },
     {
       "id": "aqua-aqw-dms10a-r",
@@ -157,8 +233,26 @@
         "standard"
       ],
       "notes": "右開き。発売年は今回の公式確認範囲では登録せずnull。",
-      "current": null,
-      "history": []
+      "current": {
+        "price": 163600,
+        "shopName": "デジ倉",
+        "url": "https://store.shopping.yahoo.co.jp/dejikura/4582678514202.html",
+        "shipping": "included",
+        "source": "Yahoo!ショッピング",
+        "productId": "aqua-aqw-dms10a-r",
+        "timestamp": "2026-09-10T01:26:24.643Z"
+      },
+      "history": [
+        {
+          "price": 163600,
+          "shopName": "デジ倉",
+          "url": "https://store.shopping.yahoo.co.jp/dejikura/4582678514202.html",
+          "shipping": "included",
+          "source": "Yahoo!ショッピング",
+          "productId": "aqua-aqw-dms10a-r",
+          "timestamp": "2026-09-10T01:26:24.643Z"
+        }
+      ]
     },
     {
       "id": "panasonic-na-sd10ubl",
@@ -188,8 +282,26 @@
         "standard"
       ],
       "notes": "公式ページで確認できた左開きモデル。",
-      "current": null,
-      "history": []
+      "current": {
+        "price": 198817,
+        "shopName": "パナソニック ストア プラス Yahoo!店",
+        "url": "https://store.shopping.yahoo.co.jp/panasonic-store/y-na-sd10ubl-w.html",
+        "shipping": "included",
+        "source": "Yahoo!ショッピング",
+        "productId": "panasonic-na-sd10ubl",
+        "timestamp": "2026-09-10T01:26:26.858Z"
+      },
+      "history": [
+        {
+          "price": 198817,
+          "shopName": "パナソニック ストア プラス Yahoo!店",
+          "url": "https://store.shopping.yahoo.co.jp/panasonic-store/y-na-sd10ubl-w.html",
+          "shipping": "included",
+          "source": "Yahoo!ショッピング",
+          "productId": "panasonic-na-sd10ubl",
+          "timestamp": "2026-09-10T01:26:26.858Z"
+        }
+      ]
     },
     {
       "id": "hitachi-bd-cx100pl",
@@ -219,8 +331,26 @@
         "value"
       ],
       "notes": "左開き。乾燥方式は公式表記「風アイロン（低温ヒート式）」。",
-      "current": null,
-      "history": []
+      "current": {
+        "price": 204600,
+        "shopName": "トライスリー",
+        "url": "https://store.shopping.yahoo.co.jp/try3/4549873218052.html",
+        "shipping": "included",
+        "source": "Yahoo!ショッピング",
+        "productId": "hitachi-bd-cx100pl",
+        "timestamp": "2026-09-10T01:26:29.044Z"
+      },
+      "history": [
+        {
+          "price": 204600,
+          "shopName": "トライスリー",
+          "url": "https://store.shopping.yahoo.co.jp/try3/4549873218052.html",
+          "shipping": "included",
+          "source": "Yahoo!ショッピング",
+          "productId": "hitachi-bd-cx100pl",
+          "timestamp": "2026-09-10T01:26:29.044Z"
+        }
+      ]
     },
     {
       "id": "hitachi-bd-cx100pr",
@@ -250,8 +380,26 @@
         "value"
       ],
       "notes": "右開き。乾燥方式は公式表記「風アイロン（低温ヒート式）",
-      "current": null,
-      "history": []
+      "current": {
+        "price": 204600,
+        "shopName": "トライスリー",
+        "url": "https://store.shopping.yahoo.co.jp/try3/4549873218069.html",
+        "shipping": "included",
+        "source": "Yahoo!ショッピング",
+        "productId": "hitachi-bd-cx100pr",
+        "timestamp": "2026-09-10T01:26:31.230Z"
+      },
+      "history": [
+        {
+          "price": 204600,
+          "shopName": "トライスリー",
+          "url": "https://store.shopping.yahoo.co.jp/try3/4549873218069.html",
+          "shipping": "included",
+          "source": "Yahoo!ショッピング",
+          "productId": "hitachi-bd-cx100pr",
+          "timestamp": "2026-09-10T01:26:31.230Z"
+        }
+      ]
     },
     {
       "id": "panasonic-na-lx127el",
@@ -281,8 +429,26 @@
         "heat-pump"
       ],
       "notes": "左開き。消費電力量・時間は標準乾燥モード。",
-      "current": null,
-      "history": []
+      "current": {
+        "price": 257763,
+        "shopName": "Joshin web",
+        "url": "https://store.shopping.yahoo.co.jp/joshin/4550719001585-21-21948.html",
+        "shipping": "included",
+        "source": "Yahoo!ショッピング",
+        "productId": "panasonic-na-lx127el",
+        "timestamp": "2026-09-10T01:26:33.475Z"
+      },
+      "history": [
+        {
+          "price": 257763,
+          "shopName": "Joshin web",
+          "url": "https://store.shopping.yahoo.co.jp/joshin/4550719001585-21-21948.html",
+          "shipping": "included",
+          "source": "Yahoo!ショッピング",
+          "productId": "panasonic-na-lx127el",
+          "timestamp": "2026-09-10T01:26:33.475Z"
+        }
+      ]
     },
     {
       "id": "panasonic-na-lx127er",
@@ -312,8 +478,26 @@
         "heat-pump"
       ],
       "notes": "右開き。公式仕様ページは左開きとの共通仕様を参照。",
-      "current": null,
-      "history": []
+      "current": {
+        "price": 283970,
+        "shopName": "XPRICE Yahoo!店",
+        "url": "https://store.shopping.yahoo.co.jp/aprice/4550719001592.html",
+        "shipping": "included",
+        "source": "Yahoo!ショッピング",
+        "productId": "panasonic-na-lx127er",
+        "timestamp": "2026-09-10T01:26:35.646Z"
+      },
+      "history": [
+        {
+          "price": 283970,
+          "shopName": "XPRICE Yahoo!店",
+          "url": "https://store.shopping.yahoo.co.jp/aprice/4550719001592.html",
+          "shipping": "included",
+          "source": "Yahoo!ショッピング",
+          "productId": "panasonic-na-lx127er",
+          "timestamp": "2026-09-10T01:26:35.646Z"
+        }
+      ]
     },
     {
       "id": "toshiba-tw-127xp5l",
@@ -343,8 +527,26 @@
         "heat-pump"
       ],
       "notes": "左開き。消費電力量・時間は通常の洗濯～乾燥時。",
-      "current": null,
-      "history": []
+      "current": {
+        "price": 198000,
+        "shopName": "あなデジ工房",
+        "url": "https://store.shopping.yahoo.co.jp/ana-den/tw-127xp5l-w.html",
+        "shipping": "included",
+        "source": "Yahoo!ショッピング",
+        "productId": "toshiba-tw-127xp5l",
+        "timestamp": "2026-09-10T01:26:37.847Z"
+      },
+      "history": [
+        {
+          "price": 198000,
+          "shopName": "あなデジ工房",
+          "url": "https://store.shopping.yahoo.co.jp/ana-den/tw-127xp5l-w.html",
+          "shipping": "included",
+          "source": "Yahoo!ショッピング",
+          "productId": "toshiba-tw-127xp5l",
+          "timestamp": "2026-09-10T01:26:37.847Z"
+        }
+      ]
     },
     {
       "id": "toshiba-tw-127xp5r",
@@ -374,8 +576,26 @@
         "heat-pump"
       ],
       "notes": "右開き。消費電力量・時間は通常の洗濯～乾燥時。",
-      "current": null,
-      "history": []
+      "current": {
+        "price": 238000,
+        "shopName": "ア-チホ-ルセ-ル",
+        "url": "https://store.shopping.yahoo.co.jp/archholesale/1311655.html",
+        "shipping": "included",
+        "source": "Yahoo!ショッピング",
+        "productId": "toshiba-tw-127xp5r",
+        "timestamp": "2026-09-10T01:26:40.061Z"
+      },
+      "history": [
+        {
+          "price": 238000,
+          "shopName": "ア-チホ-ルセ-ル",
+          "url": "https://store.shopping.yahoo.co.jp/archholesale/1311655.html",
+          "shipping": "included",
+          "source": "Yahoo!ショッピング",
+          "productId": "toshiba-tw-127xp5r",
+          "timestamp": "2026-09-10T01:26:40.061Z"
+        }
+      ]
     }
   ]
 }
