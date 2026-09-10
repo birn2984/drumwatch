@@ -1,5 +1,7 @@
 export const PRICE_CHANGE_THRESHOLD = 0.5;
 export const OUTLIER_DISCOUNT_THRESHOLD = 0.4;
+export const MIN_MACHINE_PRICE_YEN = 50000;
+export const CROSS_SOURCE_PRICE_TOLERANCE = 0.2;
 
 const ACCESSORY_TERMS = ['乾燥フィルター', '糸くずフィルター', '排水フィルター', '給水ホース', '排水ホース', '防水パン', '洗濯機台', 'かさ上げ台', '部品', 'パーツ', '交換用', '補修用', '消耗品', '純正部品', '交換フィルター', 'ドア部品', 'ヒンジ', 'パッキン', '洗剤ケース', 'ポンプ', '延長保証', '設置サービス単体', '設置サービス'];
 const STRONG_MACHINE_TERMS = ['ドラム式洗濯乾燥機', 'ドラム式洗濯機', '洗濯乾燥機', '洗濯機本体'];
@@ -38,6 +40,10 @@ function hasStrongMachineContext(title = '') {
     || /乾燥\s*\d+(?:\.\d+)?\s*kg/i.test(title);
 }
 
+export function hasMachineBodyContext(title = '') {
+  return hasStrongMachineContext(title) || title.includes('洗濯機');
+}
+
 export function classifyListing({ title, model, price }) {
   if (!Number.isFinite(price) || price <= 0) return { status: 'rejected', reason: 'invalid_price' };
   if (!titleHasModel(title, model)) return { status: 'rejected', reason: 'no_match' };
@@ -58,7 +64,19 @@ export function suspiciousPrice(price, previousPrice, threshold = PRICE_CHANGE_T
   return changeRate > threshold ? `price_change_${Math.round(changeRate * 100)}pct` : null;
 }
 
-export function flagPriceOutliers(entries, threshold = OUTLIER_DISCOUNT_THRESHOLD) {
+export function isBelowMachinePriceFloor(price, floor = MIN_MACHINE_PRICE_YEN) {
+  return Number.isFinite(price) && price < floor;
+}
+
+function isClearMachineCandidate(entry) {
+  return entry.matching === 'accepted'
+    && entry.condition === 'new'
+    && Boolean(entry.shopName)
+    && Boolean(entry.url)
+    && hasMachineBodyContext(entry.title);
+}
+
+export function flagPriceOutliers(entries, threshold = OUTLIER_DISCOUNT_THRESHOLD, sourceTolerance = CROSS_SOURCE_PRICE_TOLERANCE) {
   const accepted = entries.filter((entry) => entry.matching === 'accepted' && Number.isFinite(entry.price)).sort((a, b) => a.price - b.price);
   if (accepted.length < 2) return [];
   const lowestPrice = accepted[0].price;
@@ -69,9 +87,21 @@ export function flagPriceOutliers(entries, threshold = OUTLIER_DISCOUNT_THRESHOL
   const median = prices.length % 2 ? prices[middle] : (prices[middle - 1] + prices[middle]) / 2;
   const belowMedian = lowestPrice <= median * (1 - threshold);
   const belowRunnerUp = runnerUp && lowestPrice <= runnerUp.price * (1 - threshold);
-  if (lowest.length !== 1 || (!belowMedian && !belowRunnerUp)) return [];
-  lowest[0].matching = 'suspicious';
-  lowest[0].reason = 'possible_outlier';
-  lowest[0].wouldSelect = false;
-  return lowest;
+  if (lowest.length !== 1) return [];
+  const candidate = lowest[0];
+  const corroborated = accepted.some((entry) => entry.source !== candidate.source && Math.abs(entry.price - candidate.price) / candidate.price <= sourceTolerance);
+  if (corroborated) candidate.priceConfidence = 'cross_source_confirmed';
+  if (!belowMedian && !belowRunnerUp) return [];
+  if (!isClearMachineCandidate(candidate)) {
+    candidate.matching = 'suspicious';
+    candidate.reason = 'insufficient_body_context';
+    candidate.wouldSelect = false;
+    return [candidate];
+  }
+  if (corroborated) {
+    return [];
+  }
+  candidate.warning = 'possible_outlier';
+  candidate.priceConfidence = 'single_source_low';
+  return [candidate];
 }

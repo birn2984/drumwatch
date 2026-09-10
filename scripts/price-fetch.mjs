@@ -1,4 +1,4 @@
-import { classifyListing, conditionFromTitle, flagPriceOutliers, suspiciousPrice } from './product-matching.mjs';
+import { classifyListing, conditionFromTitle, flagPriceOutliers, isBelowMachinePriceFloor, suspiciousPrice } from './product-matching.mjs';
 
 export const REQUEST_INTERVAL_MS = 1100;
 export const PREVIEW_LIMIT = 5;
@@ -87,6 +87,7 @@ export function evaluateListings(product, sourceResult, previousPrice) {
     if (condition !== 'new') return { ...listing, manufacturer: product.manufacturer, model: product.model, source: sourceResult.source, search: sourceResult.search, condition, matching: 'rejected', reason: `non_new_condition:${condition}`, wouldSelect: false };
     const match = classifyListing({ title: listing.title, model: product.model, price: listing.price });
     if (match.status !== 'accepted') return { ...listing, manufacturer: product.manufacturer, model: product.model, source: sourceResult.source, search: sourceResult.search, condition, matching: match.reason === 'no_match' ? 'no_match' : 'rejected', reason: match.reason, wouldSelect: false };
+    if (isBelowMachinePriceFloor(listing.price)) return { ...listing, manufacturer: product.manufacturer, model: product.model, source: sourceResult.source, search: sourceResult.search, condition, matching: 'suspicious', reason: 'below_machine_price_floor', wouldSelect: false };
     const suspicious = suspiciousPrice(listing.price, previousPrice);
     if (suspicious) return { ...listing, manufacturer: product.manufacturer, model: product.model, source: sourceResult.source, search: sourceResult.search, condition, matching: 'suspicious', reason: suspicious, wouldSelect: false };
     return { ...listing, manufacturer: product.manufacturer, model: product.model, source: sourceResult.source, search: sourceResult.search, condition, matching: 'accepted', reason: 'model_match', wouldSelect: false };

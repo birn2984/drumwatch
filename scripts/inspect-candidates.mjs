@@ -28,7 +28,7 @@ for (const product of products.filter((item) => item.monitorEnabled)) {
   const inspection = await inspectProduct(product, latestPrice(product.id));
   const winner = inspection.winner;
   const bySource = Object.fromEntries(SOURCES.map((source) => [source, lowestAccepted(inspection.entries, source)]));
-  const outlierCandidates = inspection.entries.filter((entry) => entry.matching === 'suspicious' && entry.reason === 'possible_outlier');
+  const outlierCandidates = inspection.entries.filter((entry) => entry.warning === 'possible_outlier');
   const issues = [];
   if (!winner) issues.push('no_wouldSelect');
   if (winner?.condition !== 'new') issues.push(`condition:${winner.condition}`);
@@ -38,7 +38,7 @@ for (const product of products.filter((item) => item.monitorEnabled)) {
   if (outlierCandidates.length) issues.push('possible_outlier_excluded');
   reports.push({ product, inspection, winner, bySource, issues, outlierCandidates });
   const selected = winner ? `${winner.source} (${winner.wouldSelect})` : '—';
-  console.log(`| ${product.manufacturer} | ${product.model} | ${direction(product.doorDirection)} | ${selected} | ${markdown(winner?.title)} | ${formatYen(winner?.price)} | ${winner?.shipping ?? '—'} | ${markdown(winner?.shopName)} | ${winner?.condition ?? '—'} | ${winner?.url ?? '—'} | ${winner?.reason ?? '—'} | ${issues.join(', ') || 'なし'} |`);
+  console.log(`| ${product.manufacturer} | ${product.model} | ${direction(product.doorDirection)} | ${selected} | ${markdown(winner?.title)} | ${formatYen(winner?.price)} | ${winner?.shipping ?? '—'} | ${markdown(winner?.shopName)} | ${winner?.condition ?? '—'} | ${winner?.url ?? '—'} | ${winner?.reason ?? '—'} | ${[...issues, winner?.warning].filter(Boolean).join(', ') || 'なし'} |`);
 }
 
 console.log('\n| 型番 | Yahoo最安accepted | 楽天最安accepted | 最終採用source | 価格差 |');
@@ -63,7 +63,7 @@ console.log(`要確認: ${review.length}`);
 console.log(`shipping unknown: ${unknownShipping.length}`);
 console.log(`possible_outlier: ${outliers.length}`);
 if (outliers.length) {
-  console.log('possible_outlier candidates (not automatically selected):');
+  console.log('possible_outlier candidates (selected with warning when otherwise safe):');
   for (const report of outliers) {
     for (const candidate of report.outlierCandidates) {
       const next = report.inspection.entries.filter((entry) => entry.matching === 'accepted').sort((a, b) => a.price - b.price)[0];

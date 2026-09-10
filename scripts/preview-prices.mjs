@@ -22,7 +22,7 @@ for (const product of products.filter((item) => item.monitorEnabled)) {
   if (!inspection.entries.length) { console.log('  no results'); continue; }
   for (const entry of inspection.entries) {
     summary[entry.source][entry.matching] += 1;
-    console.log(`  ${entry.source} | title: ${entry.title} | price: ${entry.price} | shipping: ${entry.shipping} | shop: ${entry.shopName} | url: ${entry.url} | condition: ${entry.condition} | matching: ${entry.matching} | reason: ${entry.reason} | wouldSelect: ${entry.wouldSelect}`);
+    console.log(`  ${entry.source} | title: ${entry.title} | price: ${entry.price} | shipping: ${entry.shipping} | shop: ${entry.shopName} | url: ${entry.url} | condition: ${entry.condition} | matching: ${entry.matching} | reason: ${entry.reason} | warning: ${entry.warning ?? 'none'} | wouldSelect: ${entry.wouldSelect}`);
   }
   if (inspection.sourceResults.some((result) => result.state === 'queried') && !inspection.winner) noAccepted.push(product.model);
   if (inspection.entries.some((entry) => entry.matching === 'suspicious')) suspiciousProducts.push(product.model);
