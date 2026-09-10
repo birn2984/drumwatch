@@ -1,8 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { classifyListing, conditionFromTitle, flagPriceOutliers, isBelowMachinePriceFloor, suspiciousPrice, titleHasModel } from '../scripts/product-matching.mjs';
 import { credentialState, evaluateListings, inspectProduct, RAKUTEN_ORIGIN, RAKUTEN_REFERER, RAKUTEN_USER_AGENT, selectWinner } from '../scripts/price-fetch.mjs';
+import { loadLocalEnv } from '../scripts/load-local-env.mjs';
 
 test('型番完全一致は採用する', () => assert.equal(classifyListing({ title: 'パナソニック NA-LX129DL ドラム式洗濯乾燥機', model: 'NA-LX129DL', price: 200000 }).status, 'accepted'));
 test('ハイフンとスペースの表記揺れは同一型番と扱う', () => assert.equal(titleHasModel('NA LX129DL 本体', 'NA-LX129DL'), true));
@@ -82,4 +85,27 @@ test('.env.localはGit管理外として指定され、雛形に値を含めな�
   const [ignore, example] = await Promise.all([readFile('.gitignore', 'utf8'), readFile('.env.example', 'utf8')]);
   assert.equal(ignore.includes('.env.local'), true);
   assert.equal(example.trim(), 'YAHOO_APP_ID=\nRAKUTEN_APPLICATION_ID=\nRAKUTEN_ACCESS_KEY=');
+});
+test('previewとupdateが共通ローダーで.env.localを読み、既存環境値を優先する', async () => {
+  const directory = await mkdtemp(join(tmpdir(), 'drumwatch-env-'));
+  const filePath = join(directory, '.env.local');
+  const localYahoo = 'local-yahoo-secret';
+  const shellRakuten = 'shell-rakuten-secret';
+  const environment = { RAKUTEN_APPLICATION_ID: shellRakuten };
+  try {
+    await writeFile(filePath, `YAHOO_APP_ID=${localYahoo}\nRAKUTEN_APPLICATION_ID=local-rakuten-secret\nRAKUTEN_ACCESS_KEY=local-access-secret\n`);
+    assert.equal(loadLocalEnv(filePath, environment), true);
+    assert.equal(credentialState(environment).yahoo, 'configured');
+    assert.equal(credentialState(environment).rakuten, 'configured');
+    assert.equal(environment.RAKUTEN_APPLICATION_ID, shellRakuten);
+    assert.equal(JSON.stringify(credentialState(environment)).includes(localYahoo), false);
+    const [preview, update, check] = await Promise.all([
+      readFile('scripts/preview-prices.mjs', 'utf8'),
+      readFile('scripts/update-prices.mjs', 'utf8'),
+      readFile('scripts/check-update-credentials.mjs', 'utf8'),
+    ]);
+    for (const source of [preview, update, check]) assert.equal(source.includes("from './load-local-env.mjs'"), true);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
 });

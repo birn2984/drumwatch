@@ -1,6 +1,9 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { inspectProduct } from './price-fetch.mjs';
+import { loadLocalEnv } from './load-local-env.mjs';
+
+loadLocalEnv();
 
 const products = JSON.parse(await readFile('data/products.json', 'utf8'));
 const history = JSON.parse(await readFile('data/price-history.json', 'utf8'));

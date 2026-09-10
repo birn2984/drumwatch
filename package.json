@@ -12,6 +12,7 @@
     "prices:preview": "node scripts/preview-prices.mjs",
     "prices:inspect": "node scripts/inspect-candidates.mjs",
     "prices:update": "node scripts/update-prices.mjs",
+    "prices:update:check": "node scripts/check-update-credentials.mjs",
     "rakuten:probe": "node scripts/rakuten-probe.mjs",
     "prices:generate": "node scripts/generate-display-data.mjs",
     "start": "wrangler dev --config dist/server/wrangler.json",
