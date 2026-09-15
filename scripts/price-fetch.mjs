@@ -2,6 +2,7 @@ import { classifyListing, conditionFromTitle, flagPriceOutliers, isBelowMachineP
 
 export const REQUEST_INTERVAL_MS = 1100;
 export const PREVIEW_LIMIT = 5;
+export const LEGACY_PREVIEW_LIMIT = 20;
 export const RAKUTEN_REFERER = 'https://birn2984.github.io/drumwatch/';
 export const RAKUTEN_ORIGIN = 'https://birn2984.github.io';
 export const RAKUTEN_USER_AGENT = 'DrumWatch/0.1';
@@ -9,6 +10,7 @@ let lastRequestAt = 0;
 
 const sleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 const searchTerm = (product) => product.janCode || product.model;
+export const previewLimitFor = (product) => product.legacyWatch ? LEGACY_PREVIEW_LIMIT : PREVIEW_LIMIT;
 const shippingFromRakuten = (flag) => flag === 0 ? 'included' : flag === 1 ? 'excluded' : 'unknown';
 const rakutenItems = (json) => Array.isArray(json?.items) ? json.items : Array.isArray(json?.Items) ? json.Items : [];
 
@@ -55,30 +57,32 @@ export function credentialState(environment = process.env) {
 
 async function yahoo(product, environment, fetchImpl) {
   if (!environment.YAHOO_APP_ID) return { source: 'Yahoo!ショッピング', search: searchTerm(product), state: 'not configured', listings: [] };
+  const limit = previewLimitFor(product);
   const url = new URL('https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch');
   url.searchParams.set('appid', environment.YAHOO_APP_ID);
   url.searchParams.set('query', searchTerm(product));
-  url.searchParams.set('results', String(PREVIEW_LIMIT));
+  url.searchParams.set('results', String(limit));
   await waitForRequestSlot();
   const response = await fetchImpl(url, { headers: { Accept: 'application/json' } });
   if (!response.ok) throw new Error(`Yahoo HTTP ${response.status}`);
   const json = await response.json();
-  return { source: 'Yahoo!ショッピング', search: searchTerm(product), state: 'queried', listings: (json.hits ?? []).slice(0, PREVIEW_LIMIT).map((item) => ({ title: item.name ?? '', price: Number(item.price), shopName: item.seller?.name ?? item.name ?? '', url: item.url ?? '', shipping: item.shipping?.name?.includes('無料') ? 'included' : 'unknown' })) };
+  return { source: 'Yahoo!ショッピング', search: searchTerm(product), state: 'queried', listings: (json.hits ?? []).slice(0, limit).map((item) => ({ title: item.name ?? '', price: Number(item.price), shopName: item.seller?.name ?? item.name ?? '', url: item.url ?? '', shipping: item.shipping?.name?.includes('無料') ? 'included' : 'unknown' })) };
 }
 
 async function rakuten(product, environment, fetchImpl) {
   if (!environment.RAKUTEN_APPLICATION_ID || !environment.RAKUTEN_ACCESS_KEY) return { source: '楽天市場', search: searchTerm(product), state: 'not configured', listings: [] };
+  const limit = previewLimitFor(product);
   const url = new URL('https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701');
   url.searchParams.set('applicationId', environment.RAKUTEN_APPLICATION_ID);
   url.searchParams.set('keyword', searchTerm(product));
-  url.searchParams.set('hits', String(PREVIEW_LIMIT));
+  url.searchParams.set('hits', String(limit));
   url.searchParams.set('format', 'json');
   url.searchParams.set('formatVersion', '2');
   await waitForRequestSlot();
   const response = await fetchImpl(url, { headers: { Accept: 'application/json', accessKey: environment.RAKUTEN_ACCESS_KEY, Referer: RAKUTEN_REFERER, Origin: RAKUTEN_ORIGIN, 'User-Agent': RAKUTEN_USER_AGENT } });
   if (!response.ok) throw new SafeRequestError(await rakutenError(response, environment));
   const json = await response.json();
-  return { source: '楽天市場', search: searchTerm(product), state: 'queried', listings: rakutenItems(json).slice(0, PREVIEW_LIMIT).map((item) => ({ title: item.itemName ?? '', price: Number(item.itemPrice), shopName: item.shopName ?? '', url: item.itemUrl ?? '', shipping: shippingFromRakuten(Number(item.postageFlag)) })) };
+  return { source: '楽天市場', search: searchTerm(product), state: 'queried', listings: rakutenItems(json).slice(0, limit).map((item) => ({ title: item.itemName ?? '', price: Number(item.itemPrice), shopName: item.shopName ?? '', url: item.itemUrl ?? '', shipping: shippingFromRakuten(Number(item.postageFlag)) })) };
 }
 
 export function evaluateListings(product, sourceResult, previousPrice) {

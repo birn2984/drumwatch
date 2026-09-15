@@ -4,7 +4,7 @@ import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { classifyListing, conditionFromTitle, flagPriceOutliers, isBelowMachinePriceFloor, suspiciousPrice, titleHasModel } from '../scripts/product-matching.mjs';
-import { credentialState, evaluateListings, inspectProduct, RAKUTEN_ORIGIN, RAKUTEN_REFERER, RAKUTEN_USER_AGENT, selectWinner } from '../scripts/price-fetch.mjs';
+import { credentialState, evaluateListings, inspectProduct, previewLimitFor, RAKUTEN_ORIGIN, RAKUTEN_REFERER, RAKUTEN_USER_AGENT, selectWinner } from '../scripts/price-fetch.mjs';
 import { loadLocalEnv } from '../scripts/load-local-env.mjs';
 
 test('型番完全一致は採用する', () => assert.equal(classifyListing({ title: 'パナソニック NA-LX129DL ドラム式洗濯乾燥機', model: 'NA-LX129DL', price: 200000 }).status, 'accepted'));
@@ -93,6 +93,25 @@ test('型落ち監視カタログは既存商品を維持し、世代・グレ�
   assert.equal(catalog.some((product) => product.id === 'panasonic-na-lx127el'), true);
   assert.equal(catalog.filter((product) => product.legacyWatch).length >= 1, true);
   assert.equal(catalog.every((product) => ['modelYear', 'releaseDate', 'generationStatus', 'originalTier', 'legacyWatch', 'discontinued', 'successorModel', 'successorReleaseDate', 'stockRisk', 'availabilityStatus'].every((field) => field in product)), true);
+});
+test('世代監査で型落ち間近と直接後継を正しく保持する', async () => {
+  const catalog = JSON.parse(await readFile('data/products.json', 'utf8'));
+  const byId = Object.fromEntries(catalog.map((product) => [product.id, product]));
+  for (const id of ['panasonic-na-lx127el', 'panasonic-na-lx127er']) {
+    assert.equal(byId[id].generationStatus, 'outgoing_current');
+    assert.equal(byId[id].originalTier, 'premium');
+    assert.equal(byId[id].successorModel, 'NA-LX127FL / NA-LX127FR');
+    assert.equal(byId[id].successorReleaseDate, '2026-10');
+  }
+  for (const id of ['toshiba-tw-127xp5l', 'toshiba-tw-127xp5r']) {
+    assert.equal(byId[id].generationStatus, 'outgoing_current');
+    assert.equal(byId[id].successorModel, 'TW-137XP6L / TW-137XP6R');
+    assert.equal(byId[id].successorReleaseDate, '2026-10');
+  }
+});
+test('型落ち監視では同一API応答から20件を検査する', () => {
+  assert.equal(previewLimitFor({ legacyWatch: false }), 5);
+  assert.equal(previewLimitFor({ legacyWatch: true }), 20);
 });
 test('previewとupdateが共通ローダーで.env.localを読み、既存環境値を優先する', async () => {
   const directory = await mkdtemp(join(tmpdir(), 'drumwatch-env-'));

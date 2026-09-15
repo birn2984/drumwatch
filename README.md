@@ -26,6 +26,19 @@ npm run dev
 
 送料は `included`（込み）/ `excluded`（別）/ `unknown`（不明）で記録します。更新処理は、送料込みの候補があればその中の最安、なければ送料状態を明記した候補の最安を保存します。
 
+## 型落ち監視の世代基準
+
+世代区分は、メーカー公式の後継発表・発売情報だけで判断します。`successorReleaseDate` は `YYYY-MM` 形式で保持し、発売予定日を過ぎたら次回の監査で区分を更新できます。
+
+- `current`: 公式な後継機が発表されていない現行モデル
+- `outgoing_current`: 後継機は公式発表済みだが、まだ発売前の現行モデル。UIでは「型落ち間近（後継発表済み）」と表示します
+- `previous_generation`: 直接の後継機がすでに発売済み
+- `two_generations_old`: 直接後継機と、その次世代も発売済み
+- `older`: さらに古い世代
+- `unknown`: 公式情報だけでは後継関係または発売時点を確定できない
+
+「型落ち狙い」フィルターは、`outgoing_current`、`previous_generation`、`two_generations_old`、`older` を含みます。公式確認中でも個別に監視する価値がある機種は `legacyWatch: true` で同フィルターに残します。
+
 ## GitHub Pages
 
 1. GitHubにリポジトリを作り、`main` ブランチへpushします。
@@ -54,7 +67,7 @@ GitHubリポジトリの **Settings → Secrets and variables → Actions** に�
 
 ## 取得プレビュー
 
-`npm run prices:preview` は完全なdry-runです。検索結果の上位5件を型番、商品状態、送料、照合理由、`wouldSelect`とともに表示し、最後に販売元ごとの判定数を集計します。価格履歴・表示用JSON・Gitは変更しません。`npm run prices`も同じプレビューの互換コマンドです。本番の履歴追記は `npm run prices:update` です。どちらもYahoo!は1.1秒以上、楽天も同じ間隔で直列に検索します。
+`npm run prices:preview` は完全なdry-runです。通常商品は検索結果の上位5件、`legacyWatch: true` の型落ち候補は上位20件を、型番、商品状態、送料、照合理由、`wouldSelect`とともに表示し、最後に販売元ごとの判定数を集計します。価格履歴・表示用JSON・Gitは変更しません。`npm run prices`も同じプレビューの互換コマンドです。本番の履歴追記は `npm run prices:update` です。どちらもYahoo!は1.1秒以上、楽天も同じ間隔で直列に検索します。
 
 ## 現在の制限
 

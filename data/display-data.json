@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-15T05:40:04.282Z",
+  "generatedAt": "2026-09-15T05:59:31.664Z",
   "products": [
     {
       "id": "toshiba-tw-84gs5l",
@@ -495,12 +495,12 @@
       "washDryTimeMinutes": 98,
       "modelYear": 2025,
       "releaseDate": null,
-      "generationStatus": "previous_generation",
-      "originalTier": "flagship",
+      "generationStatus": "outgoing_current",
+      "originalTier": "premium",
       "legacyWatch": true,
       "discontinued": null,
-      "successorModel": "NA-LX129F",
-      "successorReleaseDate": null,
+      "successorModel": "NA-LX127FL / NA-LX127FR",
+      "successorReleaseDate": "2026-10",
       "stockRisk": "unknown",
       "availabilityStatus": "unknown",
       "officialUrl": "https://panasonic.jp/wash/products/NA-LX127EL/spec.html",
@@ -510,7 +510,7 @@
         "heat-pump",
         "legacy-watch"
       ],
-      "notes": "左開き。消費電力量・時間は標準乾燥モード。後継は現行LX129Fシリーズ。",
+      "notes": "左開き。消費電力量・時間は標準乾燥モード。後継のNA-LX127Fは2026年10月上旬発売予定。",
       "current": {
         "price": 257763,
         "shopName": "Joshin web",
@@ -554,12 +554,12 @@
       "washDryTimeMinutes": 98,
       "modelYear": 2025,
       "releaseDate": null,
-      "generationStatus": "previous_generation",
-      "originalTier": "flagship",
+      "generationStatus": "outgoing_current",
+      "originalTier": "premium",
       "legacyWatch": true,
       "discontinued": null,
-      "successorModel": "NA-LX129F",
-      "successorReleaseDate": null,
+      "successorModel": "NA-LX127FL / NA-LX127FR",
+      "successorReleaseDate": "2026-10",
       "stockRisk": "unknown",
       "availabilityStatus": "unknown",
       "officialUrl": "https://panasonic.jp/wash/products/NA-LX127EL/spec.html",
@@ -569,7 +569,7 @@
         "heat-pump",
         "legacy-watch"
       ],
-      "notes": "右開き。公式仕様ページは左開きとの共通仕様を参照。後継は現行LX129Fシリーズ。",
+      "notes": "右開き。公式仕様ページは左開きとの共通仕様を参照。後継のNA-LX127Fは2026年10月上旬発売予定。",
       "current": {
         "price": 283970,
         "shopName": "XPRICE Yahoo!店",
@@ -613,21 +613,22 @@
       "washDryTimeMinutes": 87,
       "modelYear": 2025,
       "releaseDate": null,
-      "generationStatus": "current",
+      "generationStatus": "outgoing_current",
       "originalTier": "flagship",
-      "legacyWatch": false,
+      "legacyWatch": true,
       "discontinued": null,
-      "successorModel": null,
-      "successorReleaseDate": null,
+      "successorModel": "TW-137XP6L / TW-137XP6R",
+      "successorReleaseDate": "2026-10",
       "stockRisk": "unknown",
       "availabilityStatus": "unknown",
       "officialUrl": "https://www.toshiba-lifestyle.com/jp/laundries/tw-127xp5/spec/",
       "monitorEnabled": true,
       "tags": [
         "premium",
-        "heat-pump"
+        "heat-pump",
+        "legacy-watch"
       ],
-      "notes": "左開き。消費電力量・時間は通常の洗濯～乾燥時。",
+      "notes": "左開き。消費電力量・時間は通常の洗濯～乾燥時。後継TW-137XP6は2026年10月発売予定。",
       "current": {
         "price": 198000,
         "shopName": "あなデジ工房",
@@ -671,21 +672,22 @@
       "washDryTimeMinutes": 87,
       "modelYear": 2025,
       "releaseDate": null,
-      "generationStatus": "current",
+      "generationStatus": "outgoing_current",
       "originalTier": "flagship",
-      "legacyWatch": false,
+      "legacyWatch": true,
       "discontinued": null,
-      "successorModel": null,
-      "successorReleaseDate": null,
+      "successorModel": "TW-137XP6L / TW-137XP6R",
+      "successorReleaseDate": "2026-10",
       "stockRisk": "unknown",
       "availabilityStatus": "unknown",
       "officialUrl": "https://www.toshiba-lifestyle.com/jp/laundries/tw-127xp5/spec/",
       "monitorEnabled": true,
       "tags": [
         "premium",
-        "heat-pump"
+        "heat-pump",
+        "legacy-watch"
       ],
-      "notes": "右開き。消費電力量・時間は通常の洗濯～乾燥時。",
+      "notes": "右開き。消費電力量・時間は通常の洗濯～乾燥時。後継TW-137XP6は2026年10月発売予定。",
       "current": {
         "price": 238000,
         "shopName": "ア-チホ-ルセ-ル",
@@ -729,11 +731,11 @@
       "washDryTimeMinutes": 98,
       "modelYear": 2024,
       "releaseDate": null,
-      "generationStatus": "two_generations_old",
+      "generationStatus": "previous_generation",
       "originalTier": "flagship",
       "legacyWatch": true,
       "discontinued": null,
-      "successorModel": null,
+      "successorModel": "NA-LX129EL / NA-LX129ER",
       "successorReleaseDate": null,
       "stockRisk": "unknown",
       "availabilityStatus": "unknown",
@@ -744,7 +746,7 @@
         "heat-pump",
         "legacy-watch"
       ],
-      "notes": "2024年発売LX129Dシリーズ。トリプル自動投入。",
+      "notes": "2024年発売LX129Dシリーズ。トリプル自動投入。後継のLX129Eは発売済み。",
       "current": null,
       "history": []
     },
@@ -770,11 +772,11 @@
       "washDryTimeMinutes": 98,
       "modelYear": 2024,
       "releaseDate": null,
-      "generationStatus": "two_generations_old",
+      "generationStatus": "previous_generation",
       "originalTier": "flagship",
       "legacyWatch": true,
       "discontinued": null,
-      "successorModel": null,
+      "successorModel": "NA-LX129EL / NA-LX129ER",
       "successorReleaseDate": null,
       "stockRisk": "unknown",
       "availabilityStatus": "unknown",
@@ -785,7 +787,7 @@
         "heat-pump",
         "legacy-watch"
       ],
-      "notes": "2024年発売LX129Dシリーズ。右開き。トリプル自動投入。",
+      "notes": "2024年発売LX129Dシリーズ。右開き。トリプル自動投入。後継のLX129Eは発売済み。",
       "current": null,
       "history": []
     },
@@ -893,7 +895,7 @@
       "washDryTimeMinutes": 93,
       "modelYear": 2024,
       "releaseDate": null,
-      "generationStatus": "two_generations_old",
+      "generationStatus": "unknown",
       "originalTier": "premium",
       "legacyWatch": true,
       "discontinued": null,
@@ -908,7 +910,7 @@
         "heat-pump",
         "legacy-watch"
       ],
-      "notes": "2024年モデル。らくはや風アイロン（ヒートポンプ式）・自動投入。",
+      "notes": "2024年モデル。らくはや風アイロン（ヒートポンプ式）・自動投入。後継関係は公式情報の追加確認待ち。",
       "current": null,
       "history": []
     },
@@ -934,7 +936,7 @@
       "washDryTimeMinutes": 93,
       "modelYear": 2024,
       "releaseDate": null,
-      "generationStatus": "two_generations_old",
+      "generationStatus": "unknown",
       "originalTier": "premium",
       "legacyWatch": true,
       "discontinued": null,
@@ -949,7 +951,7 @@
         "heat-pump",
         "legacy-watch"
       ],
-      "notes": "2024年モデル。らくはや風アイロン（ヒートポンプ式）・自動投入。",
+      "notes": "2024年モデル。らくはや風アイロン（ヒートポンプ式）・自動投入。後継関係は公式情報の追加確認待ち。",
       "current": null,
       "history": []
     },
@@ -975,7 +977,7 @@
       "washDryTimeMinutes": 150,
       "modelYear": 2024,
       "releaseDate": null,
-      "generationStatus": "two_generations_old",
+      "generationStatus": "unknown",
       "originalTier": "flagship",
       "legacyWatch": true,
       "discontinued": null,
@@ -990,7 +992,7 @@
         "hybrid",
         "legacy-watch"
       ],
-      "notes": "2024年度モデル。クリスタルシルバー・左開き。",
+      "notes": "2024年度モデル。クリスタルシルバー・左開き。後継関係は公式情報の追加確認待ち。",
       "current": null,
       "history": []
     },
@@ -1016,7 +1018,7 @@
       "washDryTimeMinutes": 150,
       "modelYear": 2024,
       "releaseDate": null,
-      "generationStatus": "two_generations_old",
+      "generationStatus": "unknown",
       "originalTier": "flagship",
       "legacyWatch": true,
       "discontinued": null,
@@ -1031,7 +1033,7 @@
         "hybrid",
         "legacy-watch"
       ],
-      "notes": "2024年度モデル。クリスタルシルバー・右開き。",
+      "notes": "2024年度モデル。クリスタルシルバー・右開き。後継関係は公式情報の追加確認待ち。",
       "current": null,
       "history": []
     }
