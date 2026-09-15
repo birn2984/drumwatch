@@ -27,7 +27,7 @@ export function lowestForDay(records: PriceRecord[]) {
 export function summaryFor(records: PriceRecord[]) {
   const ordered = [...records].sort((a, b) => +new Date(a.timestamp) - +new Date(b.timestamp));
   if (!ordered.length) {
-    return { current: undefined, difference: undefined, average30: undefined, low30: undefined, low90: undefined, buyTiming: '普通' as const };
+    return { current: undefined, difference: undefined, average30: undefined, low30: undefined, low90: undefined, buyTiming: '普通' as const, hasSufficientHistory: false };
   }
   const current = ordered.at(-1);
   const previous = ordered.at(-2);
@@ -47,5 +47,5 @@ export function summaryFor(records: PriceRecord[]) {
     else if (currentPrice <= average30 * 0.95) buyTiming = '安め';
     else if (currentPrice >= average30 * 1.05) buyTiming = '高め';
   }
-  return { current, difference: currentPrice && previous ? currentPrice - previous.price : undefined, average30, low30, low90, buyTiming };
+  return { current, difference: currentPrice && previous ? currentPrice - previous.price : undefined, average30, low30, low90, buyTiming, hasSufficientHistory: ordered.length >= 2 };
 }

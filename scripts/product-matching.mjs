@@ -7,7 +7,7 @@ const ACCESSORY_TERMS = ['乾燥フィルター', '糸くずフィルター', '�
 const STRONG_MACHINE_TERMS = ['ドラム式洗濯乾燥機', 'ドラム式洗濯機', '洗濯乾燥機', '洗濯機本体'];
 const COMPATIBILITY_TERMS = ['対応機種', '対応本体', '対象機種', '使用機種', '対応', '適用', '適合'];
 const NON_NEW_TERMS = [
-  ['中古', 'used'], ['展示品', 'display'], ['アウトレット', 'outlet'], ['訳あり', 'outlet'], ['リユース', 'used'],
+  ['中古', 'used'], ['美品', 'used'], ['展示品', 'display'], ['アウトレット', 'outlet'], ['訳あり', 'outlet'], ['リユース', 'used'],
 ];
 
 export function normalizeModel(value = '') {

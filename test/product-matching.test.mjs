@@ -35,6 +35,7 @@ test('Yahooと楽天の近い価格はクロスソース裏付けにする', () 
 });
 test('前回から50%超の価格変動はsuspiciousにする', () => assert.equal(suspiciousPrice(310000, 200000), 'price_change_55pct'));
 test('中古表記は通常新品候補にしない', () => assert.equal(conditionFromTitle('中古 NA-LX127EL ドラム式洗濯乾燥機'), 'used'));
+test('美品表記も通常新品候補にしない', () => assert.equal(conditionFromTitle('美品 BD-SX130KL ドラム式洗濯乾燥機'), 'used'));
 test('楽天 formatVersion=2の小文字itemsを直接解析する', async () => {
   let request;
   const result = await inspectProduct({ id: 'test', manufacturer: 'Test', model: 'TEST-1', janCode: null }, undefined, {
@@ -85,6 +86,13 @@ test('.env.localはGit管理外として指定され、雛形に値を含めな�
   const [ignore, example] = await Promise.all([readFile('.gitignore', 'utf8'), readFile('.env.example', 'utf8')]);
   assert.equal(ignore.includes('.env.local'), true);
   assert.equal(example.trim(), 'YAHOO_APP_ID=\nRAKUTEN_APPLICATION_ID=\nRAKUTEN_ACCESS_KEY=');
+});
+test('型落ち監視カタログは既存商品を維持し、世代・グレード情報を持つ', async () => {
+  const catalog = JSON.parse(await readFile('data/products.json', 'utf8'));
+  assert.equal(catalog.some((product) => product.id === 'toshiba-tw-84gs5l'), true);
+  assert.equal(catalog.some((product) => product.id === 'panasonic-na-lx127el'), true);
+  assert.equal(catalog.filter((product) => product.legacyWatch).length >= 1, true);
+  assert.equal(catalog.every((product) => ['modelYear', 'releaseDate', 'generationStatus', 'originalTier', 'legacyWatch', 'discontinued', 'successorModel', 'successorReleaseDate', 'stockRisk', 'availabilityStatus'].every((field) => field in product)), true);
 });
 test('previewとupdateが共通ローダーで.env.localを読み、既存環境値を優先する', async () => {
   const directory = await mkdtemp(join(tmpdir(), 'drumwatch-env-'));
