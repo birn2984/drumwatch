@@ -63,7 +63,11 @@ GitHubリポジトリの **Settings → Secrets and variables → Actions** に�
 
 楽天は現行API仕様に合わせ、Application IDをクエリ、Access Keyを`accessKey` HTTPヘッダー、登録した公開URLを`Referer` HTTPヘッダーで送ります。登録後、Actionsの **Update price history** を手動実行して確認できます。いずれかの認証情報が未設定の販売元はスキップされ、既存の履歴は消えません。
 
-価格更新は現時点では手動実行のみです。日次自動更新は、実APIの確認後に別途有効化します。
+価格更新は毎日7:00（Asia/Tokyo、GitHubの混雑により遅延する場合あり）と手動実行に対応します。Actionsでは3つのSecretsが空・未設定なら、API取得前に失敗します。ローカルでは従来どおり `.env.local` を使用できます。
+
+価格更新成功後は `workflow_run` によりPagesの再公開を自動実行し、最新のmainをビルドします。価格更新失敗時は再公開しません。通常のmainへのpushと手動のPages公開も利用できます。
+
+取得ログ末尾の `Fetch summary` で、API応答成功数、取得できた商品数、採用価格数を確認できます。各APIの成功応答が全件ゼロならActionsは失敗します。一部の通信失敗は集計に残し、正常に取得した安全な候補を保存します。API応答は成功しても安全な新品候補がなければ、履歴は維持し正常終了します。同価格でも日次観測として履歴に追記します。
 
 ## 取得プレビュー
 
