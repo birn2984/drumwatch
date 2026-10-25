@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T00:05:22.861Z",
+  "generatedAt": "2026-10-25T23:56:17.580Z",
   "products": [
     {
       "id": "toshiba-tw-84gs5l",
@@ -39,14 +39,14 @@
       ],
       "notes": "自動投入の有無は公式確認範囲では未確認。",
       "current": {
-        "price": 129739,
+        "price": 129719,
         "shopName": "ア-チホ-ルセ-ル",
         "url": "https://store.shopping.yahoo.co.jp/archholesale/1311820.html",
         "shipping": "included",
         "source": "Yahoo!ショッピング",
         "priceConfidence": "cross_source_confirmed",
         "productId": "toshiba-tw-84gs5l",
-        "timestamp": "2026-10-25T00:04:41.880Z"
+        "timestamp": "2026-10-25T23:55:36.571Z"
       },
       "history": [
         {
@@ -297,6 +297,16 @@
           "priceConfidence": "cross_source_confirmed",
           "productId": "toshiba-tw-84gs5l",
           "timestamp": "2026-10-25T00:04:41.880Z"
+        },
+        {
+          "price": 129719,
+          "shopName": "ア-チホ-ルセ-ル",
+          "url": "https://store.shopping.yahoo.co.jp/archholesale/1311820.html",
+          "shipping": "included",
+          "source": "Yahoo!ショッピング",
+          "priceConfidence": "cross_source_confirmed",
+          "productId": "toshiba-tw-84gs5l",
+          "timestamp": "2026-10-25T23:55:36.571Z"
         }
       ]
     },
@@ -339,13 +349,14 @@
       ],
       "notes": "ラスターホワイト・左開き。",
       "current": {
-        "price": 182500,
+        "price": 182520,
         "shopName": "ディーライズ2号",
         "url": "https://store.shopping.yahoo.co.jp/d-rise2/p000000925108.html",
         "shipping": "included",
         "source": "Yahoo!ショッピング",
+        "priceConfidence": "cross_source_confirmed",
         "productId": "sharp-es-8xs1-wl",
-        "timestamp": "2026-10-25T00:04:43.257Z"
+        "timestamp": "2026-10-25T23:55:37.979Z"
       },
       "history": [
         {
@@ -591,6 +602,16 @@
           "source": "Yahoo!ショッピング",
           "productId": "sharp-es-8xs1-wl",
           "timestamp": "2026-10-25T00:04:43.257Z"
+        },
+        {
+          "price": 182520,
+          "shopName": "ディーライズ2号",
+          "url": "https://store.shopping.yahoo.co.jp/d-rise2/p000000925108.html",
+          "shipping": "included",
+          "source": "Yahoo!ショッピング",
+          "priceConfidence": "cross_source_confirmed",
+          "productId": "sharp-es-8xs1-wl",
+          "timestamp": "2026-10-25T23:55:37.979Z"
         }
       ]
     },
@@ -633,14 +654,14 @@
       ],
       "notes": "ラスターホワイト・右開き。",
       "current": {
-        "price": 184099,
-        "shopName": "ア-チホ-ルセ-ル",
-        "url": "https://store.shopping.yahoo.co.jp/archholesale/1312015.html",
+        "price": 183730,
+        "shopName": "ディーライズ2号",
+        "url": "https://store.shopping.yahoo.co.jp/d-rise2/p000000925109.html",
         "shipping": "included",
         "source": "Yahoo!ショッピング",
         "priceConfidence": "cross_source_confirmed",
         "productId": "sharp-es-8xs1-wr",
-        "timestamp": "2026-10-25T00:04:45.453Z"
+        "timestamp": "2026-10-25T23:55:40.182Z"
       },
       "history": [
         {
@@ -892,6 +913,16 @@
           "priceConfidence": "cross_source_confirmed",
           "productId": "sharp-es-8xs1-wr",
           "timestamp": "2026-10-25T00:04:45.453Z"
+        },
+        {
+          "price": 183730,
+          "shopName": "ディーライズ2号",
+          "url": "https://store.shopping.yahoo.co.jp/d-rise2/p000000925109.html",
+          "shipping": "included",
+          "source": "Yahoo!ショッピング",
+          "priceConfidence": "cross_source_confirmed",
+          "productId": "sharp-es-8xs1-wr",
+          "timestamp": "2026-10-25T23:55:40.182Z"
         }
       ]
     },
@@ -941,7 +972,7 @@
         "source": "Yahoo!ショッピング",
         "priceConfidence": "cross_source_confirmed",
         "productId": "aqua-aqw-dms10a-l",
-        "timestamp": "2026-10-25T00:04:47.692Z"
+        "timestamp": "2026-10-25T23:55:42.433Z"
       },
       "history": [
         {
@@ -1182,6 +1213,16 @@
           "priceConfidence": "cross_source_confirmed",
           "productId": "aqua-aqw-dms10a-l",
           "timestamp": "2026-10-25T00:04:47.692Z"
+        },
+        {
+          "price": 157999,
+          "shopName": "ア-チホ-ルセ-ル",
+          "url": "https://store.shopping.yahoo.co.jp/archholesale/1311732.html",
+          "shipping": "included",
+          "source": "Yahoo!ショッピング",
+          "priceConfidence": "cross_source_confirmed",
+          "productId": "aqua-aqw-dms10a-l",
+          "timestamp": "2026-10-25T23:55:42.433Z"
         }
       ]
     },
@@ -1230,7 +1271,7 @@
         "shipping": "included",
         "source": "Yahoo!ショッピング",
         "productId": "aqua-aqw-dms10a-r",
-        "timestamp": "2026-10-25T00:04:49.867Z"
+        "timestamp": "2026-10-25T23:55:44.629Z"
       },
       "history": [
         {
@@ -1457,6 +1498,15 @@
           "source": "Yahoo!ショッピング",
           "productId": "aqua-aqw-dms10a-r",
           "timestamp": "2026-10-25T00:04:49.867Z"
+        },
+        {
+          "price": 162296,
+          "shopName": "Joshin web",
+          "url": "https://store.shopping.yahoo.co.jp/joshin/4582678514202-21-21947.html",
+          "shipping": "included",
+          "source": "Yahoo!ショッピング",
+          "productId": "aqua-aqw-dms10a-r",
+          "timestamp": "2026-10-25T23:55:44.629Z"
         }
       ]
     },
@@ -1504,7 +1554,7 @@
         "shipping": "included",
         "source": "Yahoo!ショッピング",
         "productId": "panasonic-na-sd10ubl",
-        "timestamp": "2026-10-25T00:04:52.094Z"
+        "timestamp": "2026-10-25T23:55:46.814Z"
       },
       "history": [
         {
@@ -1752,6 +1802,15 @@
           "source": "Yahoo!ショッピング",
           "productId": "panasonic-na-sd10ubl",
           "timestamp": "2026-10-25T00:04:52.094Z"
+        },
+        {
+          "price": 198817,
+          "shopName": "パナソニック ストア プラス Yahoo!店",
+          "url": "https://store.shopping.yahoo.co.jp/panasonic-store/y-na-sd10ubl-w.html",
+          "shipping": "included",
+          "source": "Yahoo!ショッピング",
+          "productId": "panasonic-na-sd10ubl",
+          "timestamp": "2026-10-25T23:55:46.814Z"
         }
       ]
     },
@@ -1799,7 +1858,7 @@
         "shipping": "included",
         "source": "Yahoo!ショッピング",
         "productId": "hitachi-bd-cx100pl",
-        "timestamp": "2026-10-25T00:04:54.268Z"
+        "timestamp": "2026-10-25T23:55:49.000Z"
       },
       "history": [
         {
@@ -2034,6 +2093,15 @@
           "source": "Yahoo!ショッピング",
           "productId": "hitachi-bd-cx100pl",
           "timestamp": "2026-10-25T00:04:54.268Z"
+        },
+        {
+          "price": 206476,
+          "shopName": "ECカレント",
+          "url": "https://store.shopping.yahoo.co.jp/eccurrent/iset000005775.html",
+          "shipping": "included",
+          "source": "Yahoo!ショッピング",
+          "productId": "hitachi-bd-cx100pl",
+          "timestamp": "2026-10-25T23:55:49.000Z"
         }
       ]
     },
@@ -2082,7 +2150,7 @@
         "source": "楽天市場",
         "priceConfidence": "cross_source_confirmed",
         "productId": "hitachi-bd-cx100pr",
-        "timestamp": "2026-10-25T00:04:56.464Z"
+        "timestamp": "2026-10-25T23:55:51.200Z"
       },
       "history": [
         {
@@ -2323,6 +2391,16 @@
           "priceConfidence": "cross_source_confirmed",
           "productId": "hitachi-bd-cx100pr",
           "timestamp": "2026-10-25T00:04:56.464Z"
+        },
+        {
+          "price": 203800,
+          "shopName": "PCボンバー 楽天市場店",
+          "url": "https://item.rakuten.co.jp/pc-bomber-shop/255030007737300/?rafcid=wsc_i_is_4288849a-cc6b-4fb2-a112-402c1384a61c",
+          "shipping": "included",
+          "source": "楽天市場",
+          "priceConfidence": "cross_source_confirmed",
+          "productId": "hitachi-bd-cx100pr",
+          "timestamp": "2026-10-25T23:55:51.200Z"
         }
       ]
     },
@@ -2370,8 +2448,9 @@
         "url": "https://item.rakuten.co.jp/surprise-shop/na-lx127el-w/?rafcid=wsc_i_is_4288849a-cc6b-4fb2-a112-402c1384a61c",
         "shipping": "included",
         "source": "楽天市場",
+        "priceConfidence": "cross_source_confirmed",
         "productId": "panasonic-na-lx127el",
-        "timestamp": "2026-10-25T00:04:58.711Z"
+        "timestamp": "2026-10-25T23:55:53.425Z"
       },
       "history": [
         {
@@ -2608,6 +2687,16 @@
           "source": "楽天市場",
           "productId": "panasonic-na-lx127el",
           "timestamp": "2026-10-25T00:04:58.711Z"
+        },
+        {
+          "price": 289900,
+          "shopName": "apex楽天市場店",
+          "url": "https://item.rakuten.co.jp/surprise-shop/na-lx127el-w/?rafcid=wsc_i_is_4288849a-cc6b-4fb2-a112-402c1384a61c",
+          "shipping": "included",
+          "source": "楽天市場",
+          "priceConfidence": "cross_source_confirmed",
+          "productId": "panasonic-na-lx127el",
+          "timestamp": "2026-10-25T23:55:53.425Z"
         }
       ]
     },
@@ -2772,13 +2861,13 @@
       ],
       "notes": "左開き。消費電力量・時間は通常の洗濯～乾燥時。後継TW-137XP6は2026年10月発売予定。",
       "current": {
-        "price": 228847,
+        "price": 228828,
         "shopName": "ア-チホ-ルセ-ル",
         "url": "https://store.shopping.yahoo.co.jp/archholesale/1311460.html",
         "shipping": "included",
         "source": "Yahoo!ショッピング",
         "productId": "toshiba-tw-127xp5l",
-        "timestamp": "2026-10-25T00:05:03.277Z"
+        "timestamp": "2026-10-25T23:55:57.974Z"
       },
       "history": [
         {
@@ -3007,6 +3096,15 @@
           "source": "Yahoo!ショッピング",
           "productId": "toshiba-tw-127xp5l",
           "timestamp": "2026-10-25T00:05:03.277Z"
+        },
+        {
+          "price": 228828,
+          "shopName": "ア-チホ-ルセ-ル",
+          "url": "https://store.shopping.yahoo.co.jp/archholesale/1311460.html",
+          "shipping": "included",
+          "source": "Yahoo!ショッピング",
+          "productId": "toshiba-tw-127xp5l",
+          "timestamp": "2026-10-25T23:55:57.974Z"
         }
       ]
     },
@@ -3055,7 +3153,7 @@
         "shipping": "included",
         "source": "楽天市場",
         "productId": "toshiba-tw-127xp5r",
-        "timestamp": "2026-10-25T00:05:05.285Z"
+        "timestamp": "2026-10-25T23:56:00.006Z"
       },
       "history": [
         {
@@ -3291,6 +3389,15 @@
           "source": "楽天市場",
           "productId": "toshiba-tw-127xp5r",
           "timestamp": "2026-10-25T00:05:05.285Z"
+        },
+        {
+          "price": 231799,
+          "shopName": "apex楽天市場店",
+          "url": "https://item.rakuten.co.jp/surprise-shop/tw-127xp5r-w/?rafcid=wsc_i_is_4288849a-cc6b-4fb2-a112-402c1384a61c",
+          "shipping": "included",
+          "source": "楽天市場",
+          "productId": "toshiba-tw-127xp5r",
+          "timestamp": "2026-10-25T23:56:00.006Z"
         }
       ]
     },
@@ -3340,7 +3447,7 @@
         "source": "楽天市場",
         "priceConfidence": "cross_source_confirmed",
         "productId": "panasonic-na-lx129dl",
-        "timestamp": "2026-10-25T00:05:07.497Z"
+        "timestamp": "2026-10-25T23:56:02.202Z"
       },
       "history": [
         {
@@ -3549,6 +3656,16 @@
           "priceConfidence": "cross_source_confirmed",
           "productId": "panasonic-na-lx129dl",
           "timestamp": "2026-10-25T00:05:07.497Z"
+        },
+        {
+          "price": 294800,
+          "shopName": "ECカレント",
+          "url": "https://item.rakuten.co.jp/ec-current/2000000000479/?rafcid=wsc_i_is_4288849a-cc6b-4fb2-a112-402c1384a61c",
+          "shipping": "included",
+          "source": "楽天市場",
+          "priceConfidence": "cross_source_confirmed",
+          "productId": "panasonic-na-lx129dl",
+          "timestamp": "2026-10-25T23:56:02.202Z"
         }
       ]
     },
@@ -3638,7 +3755,7 @@
         "shipping": "included",
         "source": "Yahoo!ショッピング",
         "productId": "toshiba-tw-127xp4l",
-        "timestamp": "2026-10-25T00:05:11.870Z"
+        "timestamp": "2026-10-25T23:56:06.641Z"
       },
       "history": [
         {
@@ -3856,6 +3973,15 @@
           "source": "Yahoo!ショッピング",
           "productId": "toshiba-tw-127xp4l",
           "timestamp": "2026-10-25T00:05:11.870Z"
+        },
+        {
+          "price": 205000,
+          "shopName": "ディーショップワン Yahoo!店",
+          "url": "https://store.shopping.yahoo.co.jp/dshopone-y/4904530128790.html",
+          "shipping": "included",
+          "source": "Yahoo!ショッピング",
+          "productId": "toshiba-tw-127xp4l",
+          "timestamp": "2026-10-25T23:56:06.641Z"
         }
       ]
     },
@@ -3904,7 +4030,7 @@
         "shipping": "included",
         "source": "Yahoo!ショッピング",
         "productId": "toshiba-tw-127xp4r",
-        "timestamp": "2026-10-25T00:05:14.034Z"
+        "timestamp": "2026-10-25T23:56:08.771Z"
       },
       "history": [
         {
@@ -4122,6 +4248,15 @@
           "source": "Yahoo!ショッピング",
           "productId": "toshiba-tw-127xp4r",
           "timestamp": "2026-10-25T00:05:14.034Z"
+        },
+        {
+          "price": 209800,
+          "shopName": "XPRICE Yahoo!店",
+          "url": "https://store.shopping.yahoo.co.jp/aprice/4904530128776.html",
+          "shipping": "included",
+          "source": "Yahoo!ショッピング",
+          "productId": "toshiba-tw-127xp4r",
+          "timestamp": "2026-10-25T23:56:08.771Z"
         }
       ]
     },
